@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ley de Rescate al Día · Vibras Positivas HM</title>
+<meta name="description" content="Seguimiento ciudadano a la Ley de Rescate Económico (Proyecto de Ley 477 de 2026 Cámara): qué propone, cómo le toca a su bolsillo, en qué va el trámite y las noticias del día.">
+<meta name="theme-color" content="#0a1230">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ley de Rescate al Día">
+<meta property="og:description" content="Qué propone el PL 477, cómo le toca a su bolsillo y en qué va el trámite. Se actualiza solo.">
+<meta property="og:image" content="https://ley-de-rescate.netlify.app/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ley-de-rescate.netlify.app/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fondo:#070d24; --fondo2:#0d1638; --tarjeta:#121d47; --linea:#24336b;
+  --texto:#eef2ff; --suave:#a9b4dc; --amarillo:#ffd23f; --azul:#2f6bff; --rojo:#ff3d55; --verde:#2ee59d;
+  --radio:18px; --sombra:0 18px 40px -18px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{font-family:Inter,system-ui,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.contenedor{width:min(1180px,100% - 32px);margin-inline:auto}
+h1,h2,.grande{font-family:"Archivo Black",Inter,sans-serif;letter-spacing:-.01em;line-height:1.05}
+h2{font-size:clamp(1.7rem,4.4vw,2.6rem)}
+.etiqueta{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--amarillo)}
+
+/* Barra superior */
+.barra{position:sticky;top:0;z-index:50;background:rgba(7,13,36,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.tricolor{height:4px;background:linear-gradient(90deg,var(--amarillo) 0 50%,var(--azul) 50% 75%,var(--rojo) 75%)}
+.barra-in{display:flex;align-items:center;gap:12px;padding:10px 0}
+.marca{display:flex;flex-direction:column;line-height:1;text-decoration:none;margin-right:auto;min-width:0}
+.idioma,.btn-act{flex:none}
+.marca b{font-family:"Archivo Black";font-size:1.05rem;letter-spacing:.02em}
+.marca b span{color:var(--amarillo)}
+.marca small{font-size:.66rem;color:var(--suave);letter-spacing:.12em;text-transform:uppercase;margin-top:3px}
+.idioma{display:flex;border:1px solid var(--linea);border-radius:999px;overflow:hidden}
+.idioma button{padding:6px 11px;font-size:.78rem;font-weight:800;color:var(--suave)}
+.idioma button.activo{background:var(--amarillo);color:#0a1230}
+.btn-act{padding:8px 14px;border-radius:999px;background:var(--azul);font-weight:800;font-size:.82rem;position:relative;overflow:hidden}
+.btn-act.girando::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);animation:barrido 1s linear infinite}
+@keyframes barrido{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.menu{display:flex;gap:6px;overflow-x:auto;padding:0 0 10px;scrollbar-width:none}
+.menu::-webkit-scrollbar{display:none}
+.menu a{flex:none;text-decoration:none;font-size:.82rem;font-weight:700;padding:7px 13px;border-radius:999px;background:var(--fondo2);border:1px solid var(--linea);color:var(--suave);transition:.25s}
+.menu a.activo,.menu a:hover{background:var(--texto);color:#0a1230;border-color:var(--texto)}
+
+/* Portada con fotos */
+.portada{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.portada .foto{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease;z-index:-2}
+.portada .foto.ver{opacity:1;animation:kenburns 9s ease-out both}
+@keyframes kenburns{from{transform:scale(1.14) translate(1.5%,1%)}to{transform:scale(1) translate(0,0)}}
+.portada::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,13,36,.25) 0%,rgba(7,13,36,.55) 40%,var(--fondo) 96%),linear-gradient(90deg,rgba(7,13,36,.85),transparent 70%)}
+.portada-in{padding:120px 0 34px}
+[hidden]{display:none!important}
+.estado{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 10px;border-radius:999px;background:rgba(255,210,63,.14);border:1px solid rgba(255,210,63,.45);font-weight:800;font-size:.8rem}
+.punto{width:10px;height:10px;border-radius:50%;background:var(--amarillo);box-shadow:0 0 0 0 rgba(255,210,63,.7);animation:latido 1.6s infinite}
+.estado.ley{background:rgba(46,229,157,.15);border-color:var(--verde)} .estado.ley .punto{background:var(--verde)}
+@keyframes latido{70%{box-shadow:0 0 0 12px rgba(255,210,63,0)}100%{box-shadow:0 0 0 0 rgba(255,210,63,0)}}
+.portada h1{font-size:clamp(2.5rem,8.5vw,5.6rem);margin:16px 0 8px;max-width:900px;text-shadow:0 6px 30px rgba(0,0,0,.5)}
+.portada h1 em{font-style:normal;color:var(--amarillo);display:block}
+.portada .sub{font-size:clamp(1rem,2.4vw,1.25rem);color:#dfe5ff;max-width:640px}
+.indicadores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:26px;max-width:720px}
+.ind{background:rgba(13,22,56,.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px 14px}
+.ind b{display:block;font-family:"Archivo Black";font-size:clamp(1.4rem,4vw,2rem);line-height:1.1}
+.ind span{font-size:.74rem;color:var(--suave);font-weight:600}
+.ind.siley b{color:var(--rojo)} .ind.siley.si b{color:var(--verde)}
+.pie-foto{margin-top:18px;font-size:.78rem;color:var(--suave);display:flex;gap:8px;align-items:center;min-height:2.4em}
+.pie-foto a{color:#fff;text-decoration:none;font-weight:600;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pie-foto i{font-style:normal;flex:none;padding:2px 8px;border-radius:6px;background:var(--rojo);color:#fff;font-weight:800;font-size:.68rem;letter-spacing:.08em}
+.puntos-car{display:flex;gap:6px;margin-top:12px}
+.puntos-car button{width:26px;height:4px;border-radius:4px;background:rgba(255,255,255,.25)}
+.puntos-car button.activo{background:var(--amarillo);width:44px;transition:width .4s}
+
+/* Cinta de titulares */
+.cinta{background:var(--amarillo);color:#0a1230;overflow:hidden;white-space:nowrap;font-weight:800;font-size:.86rem;border-block:1px solid #0a1230}
+.cinta-in{display:inline-flex;gap:46px;padding:10px 0;animation:correr 90s linear infinite}
+.cinta:hover .cinta-in{animation-play-state:paused}
+.cinta a{text-decoration:none}
+.cinta a::before{content:"";display:inline-block;width:8px;height:8px;background:var(--rojo);border-radius:2px;margin-right:12px;transform:rotate(45deg) translateY(-2px)}
+@keyframes correr{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+section{padding:64px 0 10px}
+.cabeza{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.cabeza p{color:var(--suave);max-width:620px;margin-top:8px}
+.revelar{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.revelar.visto{opacity:1;transform:none}
+
+/* Hoy */
+.vivo{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:800;letter-spacing:.1em;color:#fff;background:var(--rojo);padding:4px 10px;border-radius:6px}
+.vivo::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;animation:parpadeo 1s infinite}
+@keyframes parpadeo{50%{opacity:.2}}
+.hoy-fecha{font-weight:700;color:var(--suave);font-size:.9rem}
+.rejilla{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.nota{position:relative;display:flex;flex-direction:column;background:var(--tarjeta);border:1px solid var(--linea);border-radius:var(--radio);overflow:hidden;text-decoration:none;transition:transform .35s,box-shadow .35s,border-color .35s;box-shadow:var(--sombra)}
+.nota:hover{transform:translateY(-6px);border-color:var(--amarillo)}
+.nota .img{aspect-ratio:16/9;background:#18245a center/cover no-repeat;position:relative;overflow:hidden}
+.nota .img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(7,13,36,.7))}
+.nota:hover .img{animation:acercar 6s ease-out forwards}
+@keyframes acercar{to{background-size:118%}}
+.nota .txt{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.nota h3{font-size:1rem;line-height:1.3;font-weight:800}
+.nota p{font-size:.86rem;color:var(--suave);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.meta{margin-top:auto;font-size:.74rem;color:var(--suave);font-weight:600;display:flex;gap:8px;flex-wrap:wrap}
+.meta b{color:var(--amarillo)}
+.nota .chip{position:absolute;top:10px;left:10px;z-index:2}
+.nota.destacada{grid-column:1/-1}
+@media(min-width:760px){.nota.destacada{flex-direction:row}.nota.destacada .img{flex:1.25;aspect-ratio:auto;min-height:320px}.nota.destacada .txt{flex:1;padding:28px}.nota.destacada h3{font-size:1.55rem}.nota.destacada p{-webkit-line-clamp:6}}
+.sin-foto{background:linear-gradient(135deg,#1b2a6b,#0d1638)!important;display:flex;align-items:center;justify-content:center}
+.sin-foto span{font-family:"Archivo Black";font-size:1.1rem;color:rgba(255,255,255,.35);padding:0 18px;text-align:center}
+.vacio{padding:26px;border:1px dashed var(--linea);border-radius:var(--radio);color:var(--suave);text-align:center}
+
+/* Trámite */
+.tramite{background:linear-gradient(180deg,var(--fondo2),var(--fondo));border:1px solid var(--linea);border-radius:26px;padding:26px clamp(16px,4vw,36px)}
+.barra-prog{height:12px;border-radius:12px;background:#1a2758;overflow:hidden;margin:6px 0 8px}
+.barra-prog div{height:100%;width:0;background:linear-gradient(90deg,var(--amarillo),var(--azul),var(--rojo));border-radius:12px;transition:width 1.8s cubic-bezier(.2,.8,.2,1)}
+.prog-txt{display:flex;justify-content:space-between;font-size:.8rem;color:var(--suave);font-weight:700}
+.pasos{list-style:none;margin-top:24px;display:grid;gap:0}
+.paso{display:grid;grid-template-columns:44px 1fr;gap:14px;position:relative;padding-bottom:22px}
+.paso::before{content:"";position:absolute;left:21px;top:40px;bottom:0;width:2px;background:var(--linea)}
+.paso:last-child::before{display:none}
+.paso.hecho::before{background:var(--verde)}
+.num{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:"Archivo Black";background:#1a2758;border:2px solid var(--linea);color:var(--suave)}
+.paso.hecho .num{background:var(--verde);border-color:var(--verde);color:#062018}
+.paso.actual .num{background:var(--amarillo);border-color:var(--amarillo);color:#0a1230;animation:latido 1.6s infinite}
+.paso h3{font-size:1.05rem;font-weight:800;margin-top:9px}
+.paso p{font-size:.88rem;color:var(--suave);margin-top:3px}
+.paso .cuando{display:inline-block;margin-top:6px;font-size:.74rem;font-weight:800;padding:3px 9px;border-radius:6px;background:#1a2758;color:var(--suave)}
+.paso.hecho .cuando{background:rgba(46,229,157,.16);color:var(--verde)}
+.paso.actual .cuando{background:rgba(255,210,63,.16);color:var(--amarillo)}
+.senales{margin-top:10px;border-top:1px solid var(--linea);padding-top:18px}
+.senales h3{font-size:1rem;font-weight:800}
+.senales ul{list-style:none;display:grid;gap:8px;margin-top:10px}
+.senales li a{display:block;padding:10px 12px;border-radius:12px;background:#111b44;text-decoration:none;font-size:.88rem}
+.senales li small{display:block;color:var(--suave);font-size:.74rem;margin-top:2px}
+
+/* Pilares */
+.pilares{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.pilar{position:relative;border-radius:22px;overflow:hidden;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;isolation:isolate;box-shadow:var(--sombra);border:1px solid rgba(255,255,255,.08)}
+.pilar .fondo{position:absolute;inset:0;background:#18245a center/cover;z-index:-2;transition:transform 6s ease-out}
+.pilar:hover .fondo{transform:scale(1.12)}
+.pilar::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,13,36,.15),rgba(7,13,36,.82) 48%,rgba(7,13,36,.97))}
+.pilar .n{font-family:"Archivo Black";font-size:.8rem;color:var(--amarillo);letter-spacing:.12em}
+.pilar .cifra{font-family:"Archivo Black";font-size:clamp(2.2rem,6vw,3rem);line-height:1;margin:8px 0 2px;color:#fff}
+.pilar .cifra-txt{font-size:.78rem;color:var(--amarillo);font-weight:700}
+.pilar h3{font-size:1.25rem;font-weight:800;margin-top:12px}
+.pilar ul{margin:8px 0 0 18px;font-size:.88rem;color:#d6ddff;display:grid;gap:4px}
+
+.cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:22px}
+.cifra-c{background:var(--tarjeta);border:1px solid var(--linea);border-radius:16px;padding:16px;position:relative;overflow:hidden}
+.cifra-c::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--amarillo)}
+.cifra-c:nth-child(3n+2)::before{background:var(--azul)} .cifra-c:nth-child(3n)::before{background:var(--rojo)}
+.cifra-c b{font-family:"Archivo Black";font-size:1.7rem;display:block;line-height:1.1}
+.cifra-c span{font-size:.8rem;color:var(--suave)}
+
+/* Bolsillo */
+.columnas{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.col{border-radius:22px;padding:22px;border:1px solid var(--linea);background:var(--tarjeta)}
+.col.mas{background:linear-gradient(160deg,rgba(255,61,85,.18),var(--tarjeta) 45%)}
+.col.menos{background:linear-gradient(160deg,rgba(46,229,157,.16),var(--tarjeta) 45%)}
+.col h3{font-family:"Archivo Black";font-size:1.3rem}
+.col.mas h3{color:#ff8b9b} .col.menos h3{color:var(--verde)}
+.item{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.item:last-child{border-bottom:0}
+.item b{display:block;font-size:.98rem}
+.item p{font-size:.88rem;color:var(--suave);margin-top:3px}
+.item small{font-size:.72rem;color:#7f8bc0}
+.aviso{margin-top:16px;padding:14px 16px;border-radius:14px;background:rgba(47,107,255,.12);border:1px solid rgba(47,107,255,.4);font-size:.88rem}
+
+/* Calculadora, tablas y artículos */
+.calc{margin-top:18px;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));padding:24px;border-radius:24px;background:linear-gradient(135deg,#1a2a78,#0d1638 60%);border:1px solid rgba(255,210,63,.35);box-shadow:var(--sombra)}
+.calc h3,.caja h3{font-family:"Archivo Black";font-size:1.3rem;line-height:1.15;margin-top:4px}
+.calc p,.mini{font-size:.84rem;color:var(--suave);margin-top:6px}
+.tipo{display:inline-flex;background:#0a1230;border-radius:999px;padding:4px;border:1px solid var(--linea)}
+.tipo button{padding:7px 14px;border-radius:999px;font-weight:800;font-size:.84rem;color:var(--suave)}
+.tipo button.activo{background:var(--amarillo);color:#0a1230}
+.calc label{display:block;margin-top:12px;font-size:.8rem;font-weight:700;color:var(--suave)}
+.calc input{display:block;width:100%;margin-top:6px;padding:12px 14px;border-radius:12px;border:1px solid var(--linea);background:#0a1230;color:#fff;font:inherit;font-size:1.3rem;font-weight:800}
+.calc input:focus{outline:2px solid var(--amarillo)}
+.rapidos{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.rapidos button{padding:5px 10px;border-radius:8px;background:#0a1230;border:1px solid var(--linea);font-size:.76rem;font-weight:700;color:var(--suave)}
+.calc-res{grid-column:1/-1;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.res{background:rgba(7,13,36,.6);border-radius:14px;padding:14px;border:1px solid rgba(255,255,255,.08)}
+.res b{display:block;font-family:"Archivo Black";font-size:1.45rem;line-height:1.1}
+.res span{font-size:.76rem;color:var(--suave);font-weight:600}
+.res.sube b{color:#ff8b9b} .res.igual b{color:var(--verde)}
+.dos{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:16px}
+.caja{background:var(--tarjeta);border:1px solid var(--linea);border-radius:22px;padding:20px}
+.tabla{width:100%;border-collapse:collapse;margin-top:12px;font-size:.84rem}
+.tabla th{text-align:left;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--suave);padding:6px 4px;border-bottom:1px solid var(--linea)}
+.tabla td{padding:8px 4px;border-bottom:1px solid rgba(255,255,255,.06)}
+.tabla td b{color:var(--amarillo)}
+.tabla tr.nuevo td{background:rgba(255,61,85,.1)}
+.lista-c{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.lista-c li{padding:5px 10px;border-radius:999px;font-size:.78rem;font-weight:700}
+.lista-c.si li{background:rgba(46,229,157,.14);color:var(--verde)}
+.lista-c.no li{background:rgba(255,61,85,.14);color:#ff8b9b}
+.sub-c{margin-top:14px;font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.buscar-art{width:100%;padding:13px 16px;border-radius:14px;border:1px solid var(--linea);background:var(--fondo2);color:var(--texto);font:inherit;margin-bottom:14px}
+.titulos{display:grid;gap:10px}
+.titulo{background:var(--tarjeta);border:1px solid var(--linea);border-radius:18px;overflow:hidden}
+.titulo>button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 18px;text-align:left;font-weight:800;font-size:1rem}
+.titulo>button small{color:var(--amarillo);font-size:.76rem;flex:none}
+.titulo>button::after{content:"+";font-family:"Archivo Black";font-size:1.3rem;color:var(--amarillo);transition:transform .3s}
+.titulo.abierto>button::after{transform:rotate(45deg)}
+.arts{display:none;padding:0 18px 14px}
+.titulo.abierto .arts{display:grid;gap:8px;animation:bajar .35s ease}
+@keyframes bajar{from{opacity:0;transform:translateY(-6px)}}
+.art{display:grid;grid-template-columns:70px 1fr;gap:10px;padding:10px 12px;border-radius:12px;background:#0f1940;font-size:.88rem}
+.art b{color:var(--amarillo);font-size:.78rem}
+
+/* Voces */
+.pestanas{display:inline-flex;background:var(--fondo2);border:1px solid var(--linea);border-radius:999px;padding:4px;margin-bottom:16px}
+.pestanas button{padding:8px 16px;border-radius:999px;font-weight:800;font-size:.86rem;color:var(--suave)}
+.pestanas button.activo{background:var(--texto);color:#0a1230}
+.voz{background:var(--tarjeta);border:1px solid var(--linea);border-radius:18px;padding:18px;position:relative}
+.voz::before{content:"";position:absolute;top:18px;left:0;width:4px;height:36px;border-radius:0 4px 4px 0;background:var(--verde)}
+.voz.contra::before{background:var(--rojo)}
+.voz h3{font-size:1rem;font-weight:800}
+.voz .cargo{font-size:.78rem;color:var(--amarillo);font-weight:700}
+.voz p{font-size:.9rem;color:#d6ddff;margin-top:8px}
+.voz a{font-size:.74rem;color:var(--suave);display:inline-block;margin-top:8px}
+.frase{margin-top:20px;border-radius:22px;padding:24px;background:linear-gradient(120deg,#2a0c1a,#121d47);border:1px solid rgba(255,61,85,.4)}
+.frase q{font-family:"Archivo Black";font-size:clamp(1.3rem,3.6vw,2rem);line-height:1.15;display:block}
+.frase small{display:block;margin-top:10px;color:var(--suave)}
+
+/* Videos */
+.videos{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.video{background:var(--tarjeta);border:1px solid var(--linea);border-radius:18px;overflow:hidden}
+.video .marco{aspect-ratio:16/9;position:relative;background:#000 center/cover;cursor:pointer}
+.video .marco::after{content:"VER VIDEO";position:absolute;left:12px;bottom:12px;background:var(--rojo);color:#fff;font-weight:800;font-size:.72rem;letter-spacing:.1em;padding:6px 10px;border-radius:8px;transition:.3s}
+.video .marco:hover::after{background:var(--amarillo);color:#0a1230}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video .txt{padding:12px 14px}
+.video h3{font-size:.92rem;font-weight:700;line-height:1.3}
+
+/* Noticias */
+.buscador{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.buscador input{flex:1;min-width:200px;padding:13px 16px;border-radius:14px;border:1px solid var(--linea);background:var(--fondo2);color:var(--texto);font:inherit;font-size:.95rem}
+.buscador input:focus{outline:2px solid var(--amarillo);border-color:transparent}
+.boton{padding:12px 16px;border-radius:14px;background:var(--amarillo);color:#0a1230;font-weight:800;font-size:.88rem}
+.boton.sec{background:var(--fondo2);color:var(--texto);border:1px solid var(--linea)}
+.lista{display:grid;gap:10px}
+.fila{display:grid;grid-template-columns:120px 1fr;gap:14px;background:var(--tarjeta);border:1px solid var(--linea);border-radius:16px;overflow:hidden;text-decoration:none;transition:.3s}
+.fila:hover{border-color:var(--amarillo);transform:translateX(4px)}
+.fila .img{background:#18245a center/cover}
+.fila .txt{padding:12px 14px 12px 0}
+.fila h3{font-size:.95rem;font-weight:700;line-height:1.3}
+@media(max-width:520px){.fila{grid-template-columns:96px 1fr}}
+
+/* Documentos y pie */
+.docs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.doc{display:block;padding:18px;border-radius:18px;background:var(--tarjeta);border:1px solid var(--linea);text-decoration:none;transition:.3s}
+.doc:hover{border-color:var(--amarillo);transform:translateY(-4px)}
+.doc b{display:block;font-size:1rem}
+.doc span{font-size:.84rem;color:var(--suave)}
+.doc em{font-style:normal;display:inline-block;margin-top:10px;font-size:.74rem;font-weight:800;color:var(--amarillo);letter-spacing:.08em}
+footer{margin-top:70px;padding:40px 0 60px;border-top:1px solid var(--linea);background:var(--fondo2)}
+footer .marca-v{font-family:"Archivo Black";font-size:1.3rem}
+footer p{color:var(--suave);font-size:.86rem;margin-top:8px;max-width:760px}
+footer a{color:var(--amarillo)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,220%);opacity:0;background:var(--texto);color:#0a1230;font-weight:800;padding:12px 18px;border-radius:14px;box-shadow:var(--sombra);transition:transform .4s;z-index:90;font-size:.88rem;max-width:90vw;text-align:center}
+.toast.ver{transform:translate(-50%,0);opacity:1}
+@media(max-width:420px){.marca small{display:none}.marca b{font-size:.92rem}}
+@media(max-width:560px){.indicadores{grid-template-columns:1fr 1fr}.indicadores .ind:last-child{grid-column:1/-1}.btn-act{padding:8px 11px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="barra">
+  <div class="tricolor"></div>
+  <div class="contenedor">
+    <div class="barra-in">
+      <a class="marca" href="#inicio"><b>LEY DE RESCATE <span>AL DÍA</span></b><small data-t="marcaSub">PL 477 de 2026 · Vibras Positivas HM</small></a>
+      <div class="idioma" role="group" aria-label="Idioma / Language"><button data-lang="es" class="activo">ES</button><button data-lang="en">EN</button></div>
+      <button class="btn-act" id="actualizar" data-t="actualizar">Actualizar</button>
+    </div>
+    <nav class="menu" id="menu">
+      <a href="#hoy" data-t="mHoy">Hoy</a>
+      <a href="#tramite" data-t="mTramite">Trámite</a>
+      <a href="#propone" data-t="mPropone">Qué propone</a>
+      <a href="#bolsillo" data-t="mBolsillo">Su bolsillo</a>
+      <a href="#articulos" data-t="mArt">Artículos</a>
+      <a href="#voces" data-t="mVoces">Voces</a>
+      <a href="#videos" data-t="mVideos">Videos</a>
+      <a href="#noticias" data-t="mNoticias">Noticias</a>
+      <a href="#documentos" data-t="mDocs">Documentos</a>
+    </nav>
+  </div>
+</header>
+
+<section class="portada" id="inicio" style="padding:0">
+  <div id="fotos"></div>
+  <div class="contenedor portada-in">
+    <span class="estado" id="estado"><span class="punto"></span><span id="estadoTxt">En trámite en la Cámara</span></span>
+    <h1><span data-t="h1a">Ley de Rescate</span><em data-t="h1b">Económico</em></h1>
+    <p class="sub" data-t="sub">Proyecto de Ley 477 de 2026 Cámara. Qué propone, cómo le toca a su bolsillo y en qué va en el Congreso, con las noticias reales de cada día.</p>
+    <div class="indicadores">
+      <div class="ind"><b id="dias">0</b><span data-t="indDias">días en el Congreso</span></div>
+      <div class="ind"><b id="pasoN">1/8</b><span data-t="indPaso">pasos del trámite</span></div>
+      <div class="ind siley" id="indLey"><b id="esLey">Todavía no</b><span data-t="indLey">¿Ya es ley?</span></div>
+    </div>
+    <div class="pie-foto" id="pieFoto"></div>
+    <div class="puntos-car" id="puntosCar"></div>
+  </div>
+</section>
+
+<div class="cinta" aria-label="Titulares"><div class="cinta-in" id="cinta"></div></div>
+
+<main>
+<section id="hoy">
+  <div class="contenedor">
+    <div class="cabeza revelar">
+      <div><span class="etiqueta" data-t="eHoy">Lo de hoy</span><h2 data-t="tHoy">Hoy en la Ley de Rescate</h2><p class="hoy-fecha" id="hoyFecha"></p></div>
+      <span class="vivo" id="vivoTag" hidden data-t="enVivo">EN VIVO</span>
+    </div>
+    <div class="rejilla" id="hoyLista"><div class="vacio" data-t="cargando">Cargando las noticias de hoy…</div></div>
+  </div>
+</section>
+
+<section id="tramite">
+  <div class="contenedor">
+    <div class="cabeza revelar"><div><span class="etiqueta" data-t="eTramite">Paso a paso</span><h2 data-t="tTramite">¿En qué va el trámite?</h2><p data-t="pTramite">Para ser ley, el proyecto necesita cuatro debates (dos en la Cámara y dos en el Senado), la conciliación si los textos quedan distintos y la firma del presidente.</p></div></div>
+    <div class="tramite revelar">
+      <div class="prog-txt"><span id="progTxt"></span><span id="progPct"></span></div>
+      <div class="barra-prog"><div id="progBarra"></div></div>
+      <ol class="pasos" id="pasos"></ol>
+      <div class="senales" id="senales"></div>
+    </div>
+  </div>
+</section>
+
+<section id="propone">
+  <div class="contenedor">
+    <div class="cabeza revelar"><div><span class="etiqueta" data-t="ePropone">El proyecto por dentro</span><h2 data-t="tPropone">Qué propone, en cinco frentes</h2><p data-t="pPropone">Así lo presentó el Gobierno al radicarlo. Son las cifras del texto radicado; el Congreso puede cambiarlas.</p></div></div>
+    <div class="pilares" id="pilares"></div>
+    <div class="cifras revelar" id="cifras"></div>
+  </div>
+</section>
+
+<section id="bolsillo">
+  <div class="contenedor">
+    <div class="cabeza revelar"><div><span class="etiqueta" data-t="eBolsillo">Cómo le toca</span><h2 data-t="tBolsillo">Su bolsillo con la Ley de Rescate</h2><p data-t="pBolsillo">Lo que cambiaría para hogares, trabajadores y empresas si el texto se aprueba como fue radicado.</p></div></div>
+    <div class="columnas revelar">
+      <div class="col mas"><h3 data-t="pagarianMas">Pagarían más</h3><div id="colMas"></div></div>
+      <div class="col menos"><h3 data-t="pagarianMenos">Pagarían menos o recibirían</h3><div id="colMenos"></div></div>
+    </div>
+    <div class="calc revelar" id="calc">
+      <div><span class="etiqueta" data-t="eCalc">Calculadora</span><h3 data-t="tCalc">¿Cuánto le subiría el aporte a salud?</h3><p data-t="pCalc">Según la tabla del artículo 21, que regiría desde enero de 2027. Valores en pesos de 2026.</p></div>
+      <div class="calc-campos">
+        <div class="tipo" role="group"><button class="activo" data-tipo="emp" data-t="empleado">Empleado</button><button data-tipo="ind" data-t="independiente">Independiente</button></div>
+        <label><span data-t="lblSalario">Salario mensual (o ingreso base de cotización)</span><input id="salario" inputmode="numeric" value="3.500.000"></label>
+        <div class="rapidos" id="rapidos"></div>
+      </div>
+      <div class="calc-res" id="calcRes"></div>
+    </div>
+    <div class="dos revelar">
+      <div class="caja"><h3 data-t="tRenta">Nueva tabla de renta para personas</h3><p class="mini" data-t="pRenta">Artículo 48. Se aplica sobre la renta gravable anual, después de restar exenciones y deducciones. Pesos con la UVT de 2026 ($52.374).</p><div id="tablaRenta"></div></div>
+      <div class="caja"><h3 data-t="tComida">El IVA de la comida desde 2028</h3><p class="mini" data-t="pComida">Artículos 42, 46 y 106. Lo que aparece en las listas sin IVA y lo que no.</p><div id="comida"></div></div>
+    </div>
+    <div class="aviso revelar" data-t="avisoBolsillo">Esto es lo que dice el proyecto radicado el 29 de octubre de 2026. Nada de esto rige todavía: solo aplica si el Congreso lo aprueba y el presidente lo sanciona, y los congresistas ya anunciaron cambios.</div>
+  </div>
+</section>
+
+<section id="articulos">
+  <div class="contenedor">
+    <div class="cabeza revelar"><div><span class="etiqueta" data-t="eArt">El texto radicado</span><h2 data-t="tArt">La ley por dentro</h2><p data-t="pArt">106 artículos en siete títulos. Toque cada título para ver qué dicen sus artículos principales.</p></div></div>
+    <input id="buscarArt" class="buscar-art revelar" type="search" data-tp="buscarArtPh" placeholder="Buscar en los artículos: salud, IVA, DIAN…">
+    <div class="titulos" id="titulos"></div>
+  </div>
+</section>
+
+<section id="voces">
+  <div class="contenedor">
+    <div class="cabeza revelar"><div><span class="etiqueta" data-t="eVoces">El debate</span><h2 data-t="tVoces">Lo que dicen de la ley</h2><p data-t="pVoces">Respaldos y reparos de distintos sectores, resumidos con su fuente.</p></div></div>
+    <div class="pestanas revelar"><button class="activo" data-voz="favor" data-t="aFavor">A favor</button><button data-voz="contra" data-t="conReparos">Con reparos</button></div>
+    <div class="rejilla" id="vocesLista"></div>
+    <div class="frase revelar"><q data-t="frase">Nos dejaron jodidos como país</q><small data-t="fraseAutor">Vicepresidente José Manuel Restrepo, al radicar la ley (citado por Semana, 29 oct 2026). La frase que se volvió viral en redes.</small></div>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="contenedor">
+    <div class="cabeza revelar"><div><span class="etiqueta" data-t="eVideos">Para ver</span><h2 data-t="tVideos">Videos de los noticieros</h2><p data-t="pVideos">El robot busca cada 30 minutos los videos de los noticieros colombianos que hablen de la ley.</p></div></div>
+    <div class="videos" id="videosLista"></div>
+  </div>
+</section>
+
+<section id="noticias">
+  <div class="contenedor">
+    <div class="cabeza revelar"><div><span class="etiqueta" data-t="eNoticias">Archivo</span><h2 data-t="tNoticias">Todas las noticias</h2><p data-t="pNoticias">Busque por palabra: IVA, café, salud, renta, Senado, ponencia…</p></div></div>
+    <div class="buscador revelar">
+      <input id="buscar" type="search" data-tp="buscarPh" placeholder="Buscar en las noticias de la ley">
+      <button class="boton" id="buscarVivo" data-t="buscarVivo">Buscar en vivo</button>
+    </div>
+    <div class="lista" id="lista"></div>
+    <div style="text-align:center;margin-top:16px"><button class="boton sec" id="masNoticias" data-t="verMas">Ver más</button></div>
+  </div>
+</section>
+
+<section id="documentos">
+  <div class="contenedor">
+    <div class="cabeza revelar"><div><span class="etiqueta" data-t="eDocs">Fuentes oficiales</span><h2 data-t="tDocs">Documentos</h2></div></div>
+    <div class="docs revelar" id="docs"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="contenedor">
+    <div class="marca-v">Vibras Positivas HM</div>
+    <p data-t="pie1">App ciudadana de seguimiento. Resume lo que publican los medios y el Congreso; no es una página oficial del Gobierno ni del Congreso.</p>
+    <p><span data-t="pie2">Última actualización del robot:</span> <b id="ultima">—</b> <span data-t="horaCol">(hora de Colombia)</span></p>
+    <p><a href="https://vibraspositivashm.com" target="_blank" rel="noopener">vibraspositivashm.com</a> · <span data-t="pie3">Software por Vibras Positivas HM · Caucasia, Antioquia</span></p>
+  </div>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const ZONA = 'America/Bogota';
+const RADICACION = '2026-10-29';
+const PDF = 'https://www.camara.gov.co/wp-content/uploads/2026/10/proyectos-ley/documentos/proyecto-36548/PROYECTO-DE-LEY-Rescate-Economico-2026-VSD-RADICADA-1.pdf';
+const FICHA = 'https://www.camara.gov.co/ley-rescate-economico';
+let idioma = 'es';
+try { idioma = localStorage.getItem('idioma') || (navigator.language || 'es').slice(0, 2); if (!['es', 'en'].includes(idioma)) idioma = 'es'; } catch {}
+
+/* ---------- Textos de la interfaz ---------- */
+const T = {
+  es: {},
+  en: {
+    marcaSub: 'Bill 477 of 2026 · Vibras Positivas HM', actualizar: 'Refresh',
+    mHoy: 'Today', mTramite: 'Progress', mPropone: 'What it proposes', mBolsillo: 'Your wallet', mVoces: 'Voices', mVideos: 'Videos', mNoticias: 'News', mDocs: 'Documents',
+    h1a: 'Economic', h1b: 'Rescue Law',
+    sub: 'Bill 477 of 2026 in Colombia\'s House of Representatives. What it proposes, how it hits your wallet and where it stands in Congress, with real news every day.',
+    indDias: 'days in Congress', indPaso: 'steps of the process', indLey: 'Is it law yet?',
+    eHoy: 'Today', tHoy: 'Today on the Rescue Law', enVivo: 'LIVE', cargando: 'Loading today\'s news…',
+    eTramite: 'Step by step', tTramite: 'Where does it stand?',
+    pTramite: 'To become law, the bill needs four debates (two in the House, two in the Senate), a reconciliation if the texts differ, and the president\'s signature.',
+    ePropone: 'Inside the bill', tPropone: 'What it proposes, on five fronts',
+    pPropone: 'This is how the Government presented it when filing. These are the figures in the filed text; Congress can change them.',
+    eBolsillo: 'How it affects you', tBolsillo: 'Your wallet under the Rescue Law',
+    pBolsillo: 'What would change for households, workers and businesses if the text passes as filed.',
+    pagarianMas: 'Would pay more', pagarianMenos: 'Would pay less or receive',
+    avisoBolsillo: 'This is what the bill filed on October 29, 2026 says. None of it is in force yet: it only applies if Congress passes it and the president signs it, and lawmakers have already announced changes.',
+    eVoces: 'The debate', tVoces: 'What people say about the law', pVoces: 'Support and objections from different sectors, summarized with their source.',
+    aFavor: 'In favor', conReparos: 'With objections',
+    frase: 'They left us screwed as a country', fraseAutor: 'Vice President José Manuel Restrepo, when filing the law (quoted by Semana, Oct 29, 2026). The line that went viral on social media.',
+    eVideos: 'Watch', tVideos: 'News videos', pVideos: 'Every 30 minutes the robot looks for videos from Colombian newscasts about the law. Videos are in Spanish.',
+    eNoticias: 'Archive', tNoticias: 'All the news', pNoticias: 'Search by keyword: IVA (VAT), café, salud, renta, Senado… Headlines are in Spanish, as published.',
+    buscarPh: 'Search the news about the law', buscarVivo: 'Live search', verMas: 'See more',
+    eDocs: 'Official sources', tDocs: 'Documents', mArt: 'Articles',
+    eCalc: 'Calculator', tCalc: 'How much would your health contribution rise?', pCalc: 'Based on the table in article 21, effective January 2027. Amounts in 2026 pesos.',
+    empleado: 'Employee', independiente: 'Self-employed', lblSalario: 'Monthly salary (or contribution base)',
+    tRenta: 'New personal income tax table', pRenta: 'Article 48. Applies to annual taxable income, after exemptions and deductions. Pesos at the 2026 UVT (COP 52,374).',
+    tComida: 'VAT on food from 2028', pComida: 'Articles 42, 46 and 106. What is on the VAT-free lists and what is not.',
+    eArt: 'The filed text', tArt: 'Inside the law', pArt: '106 articles in seven titles. Tap each title to see what its main articles say.', buscarArtPh: 'Search the articles: salud, IVA, DIAN…',
+    pie1: 'Citizen tracking app. It summarizes what the media and Congress publish; it is not an official Government or Congress page.',
+    pie2: 'Last robot update:', horaCol: '(Colombia time)', pie3: 'Software by Vibras Positivas HM · Caucasia, Antioquia',
+  }
+};
+const tx = (k, def) => (idioma === 'en' && T.en[k]) || def;
+const L = o => (o && typeof o === 'object') ? (o[idioma] || o.es) : o;
+
+/* ---------- Contenido ---------- */
+const PASOS = [
+  { id: 'radicacion', t: { es: 'Radicación', en: 'Filing' }, d: { es: 'El ministro de Hacienda, Miguel Gómez, el ministro de Justicia e Interior (e), Iván Cancino, y el vicepresidente José Manuel Restrepo lo entregaron en la Secretaría General de la Cámara.', en: 'Finance Minister Miguel Gómez, acting Justice and Interior Minister Iván Cancino and Vice President José Manuel Restrepo filed it with the House General Secretariat.' } },
+  { id: 'ponentes', t: { es: 'Comisión y ponentes', en: 'Committee and rapporteurs' }, d: { es: 'La Cámara le asigna comisión y nombra a los congresistas que escriben la ponencia (el informe que recomienda aprobarlo, cambiarlo o archivarlo).', en: 'The House assigns a committee and names the lawmakers who write the report recommending to pass, amend or shelve it.' } },
+  { id: 'primer', t: { es: 'Primer debate', en: 'First debate' }, d: { es: 'Votación en la comisión de la Cámara. Si el Gobierno pide urgencia, pueden sesionar juntas las comisiones de Cámara y Senado.', en: 'Vote in the House committee. If the Government requests urgency, House and Senate committees can sit jointly.' } },
+  { id: 'segundo', t: { es: 'Segundo debate', en: 'Second debate' }, d: { es: 'Votación en la plenaria de la Cámara de Representantes.', en: 'Vote in the full House of Representatives.' } },
+  { id: 'tercer', t: { es: 'Tercer debate', en: 'Third debate' }, d: { es: 'Votación en la comisión del Senado.', en: 'Vote in the Senate committee.' } },
+  { id: 'cuarto', t: { es: 'Cuarto debate', en: 'Fourth debate' }, d: { es: 'Votación en la plenaria del Senado.', en: 'Vote in the full Senate.' } },
+  { id: 'conciliacion', t: { es: 'Conciliación', en: 'Reconciliation' }, d: { es: 'Si Cámara y Senado aprobaron textos distintos, una comisión los une y ambas plenarias votan el texto final.', en: 'If House and Senate passed different texts, a committee merges them and both chambers vote the final text.' } },
+  { id: 'sancion', t: { es: 'Sanción: ya es ley', en: 'Signed: it is law' }, d: { es: 'El presidente la firma y se publica en el Diario Oficial. Desde ahí empieza a regir según las fechas que fije cada artículo.', en: 'The president signs it and it is published in the Official Gazette. It takes effect on the dates each article sets.' } },
+];
+
+const PILARES = [
+  { n: '01', cifra: '1 de 3', cifraEn: '1 in 3', cifraT: { es: 'pesos de impuestos se va en deuda, según el Gobierno', en: 'tax pesos goes to debt, per the Government' },
+    t: { es: 'Rescate fiscal: frenar la deuda', en: 'Fiscal rescue: stop the debt' },
+    l: { es: ['Reducir el gasto en 2,2% del PIB: un poco más de $40 billones en 2027', 'Nueva regla fiscal: deuda ancla de 55% del PIB y límite de 71%', 'Cerca de 50 fondos y más de 250 transferencias bajo revisión'],
+         en: ['Cut spending by 2.2% of GDP: just over COP 40 trillion in 2027', 'New fiscal rule: debt anchor of 55% of GDP, ceiling of 71%', 'About 50 funds and over 250 transfers under review'] } },
+  { n: '02', cifra: '19 M', cifraT: { es: 'de colombianos recibirían la devolución del IVA', en: 'Colombians would get their VAT back' },
+    t: { es: 'Rescate social: EfectIVA', en: 'Social rescue: EfectIVA' },
+    l: { es: ['Devolución del 100% del IVA pagado a personas en pobreza y pobreza extrema', 'Devolución del 50%, 40% y 30% para los tramos vulnerables', 'Desde 2028, por persona y cada 15 días como máximo, con tope de 5,5 UVT al mes'],
+         en: ['100% refund of VAT paid for people in poverty and extreme poverty', '50%, 40% and 30% refunds for vulnerable brackets', 'From 2028, per person, at least every 15 days, capped at 5.5 UVT a month'] } },
+  { n: '03', cifra: '$30 B', cifraT: { es: 'billones para la salud en cuatro años', en: 'trillion pesos for health over four years' },
+    t: { es: 'Rescate de la salud', en: 'Health rescue' },
+    l: { es: ['Más aportes a salud de quienes ganan más de 2 salarios mínimos', 'Recursos de cajas de compensación y saldos de fondos públicos', 'Más impuestos al tabaco y los licores'],
+         en: ['Higher health contributions for those earning over 2 minimum wages', 'Funds from family compensation funds and public-fund balances', 'Higher taxes on tobacco and liquor'] } },
+  { n: '04', cifra: '35% a 31%', cifraEn: '35% to 31%', cifraT: { es: 'baja la renta de las empresas (2027-2028)', en: 'corporate income tax cut (2027-2028)' },
+    t: { es: 'Rescate de la inversión', en: 'Investment rescue' },
+    l: { es: ['Renta empresarial: 33% en 2027 y 31% desde 2028', 'RUGE: estabilidad jurídica para inversiones grandes que generen empleo', 'Normalización de activos, incluidos criptoactivos'],
+         en: ['Corporate tax: 33% in 2027 and 31% from 2028', 'RUGE: legal stability for large job-creating investments', 'Asset normalization, including crypto-assets'] } },
+  { n: '05', cifra: '70%', cifraT: { es: 'del ajuste sale de recortar el Estado', en: 'of the adjustment comes from cutting the State' },
+    t: { es: 'Un Estado más pequeño', en: 'A smaller State' },
+    l: { es: ['Contratos de prestación de servicios: 50% menos en 2027', 'Nómina: 20% menos en 2028, sin tocar a la Fuerza Pública', 'Facultades por seis meses para suprimir, fusionar o reestructurar entidades'],
+         en: ['Service contracts: 50% less in 2027', 'Payroll: 20% less in 2028, excluding the armed forces', 'Six-month powers to abolish, merge or restructure agencies'] } },
+];
+
+const CIFRAS = [
+  { v: '477', t: { es: 'número del proyecto en la Cámara', en: 'House bill number' } },
+  { v: '$40 B', t: { es: 'billones de recorte de gasto en 2027', en: 'trillion pesos in spending cuts in 2027' } },
+  { v: '106', t: { es: 'artículos en 123 páginas', en: 'articles across 123 pages' } },
+  { v: '6 meses', t: { es: 'de facultades extraordinarias al presidente', en: 'of special powers for the president' }, en: '6 months' },
+  { v: '$76', t: { es: 'por cada 100 ml de gaseosa azucarada desde 2028', en: 'per 100 ml of sugary soda from 2028' } },
+  { v: '8,5%', t: { es: 'aporte a salud del empleador desde 2027', en: 'employer health contribution from 2027' }, en: '8.5%' },
+  { v: '2028', t: { es: 'año en que arrancan los cambios fuertes del IVA', en: 'year the big VAT changes start' } },
+];
+
+const MAS = [
+  { t: { es: 'Fin de la tarifa del IVA del 5% (desde 2028)', en: 'End of the 5% VAT rate (from 2028)' }, d: { es: 'El proyecto deroga los artículos 468-1 y 468-3 del Estatuto Tributario, donde están los bienes y servicios al 5%. Café, azúcar, aceites, pastas, chocolate y la medicina prepagada pasarían al 19%.', en: 'The bill repeals articles 468-1 and 468-3 of the Tax Code, which list goods and services at 5%. Coffee, sugar, oils, pasta, chocolate and private health plans would move to 19%.' }, f: 'Art. 106, num. 4 b' },
+  { t: { es: 'Licores y vinos con IVA del 19%', en: '19% VAT on liquor and wine' }, d: { es: 'Desde que la ley entre en vigencia, licores, vinos y aperitivos quedan gravados con IVA a la tarifa general; esa plata se cede a los departamentos para la salud. También sube el impuesto al consumo de licores y cigarrillos.', en: 'Once in force, liquor, wine and aperitifs are taxed at the general VAT rate; that money goes to departments for health. Consumption taxes on liquor and cigarettes also rise.' }, f: 'Arts. 27 a 33' },
+  { t: { es: 'Cerveza', en: 'Beer' }, d: { es: 'El impuesto a la producción de cerveza queda con un componente de $330 por grado de alcohol en cada 330 cm³ más un 10% sobre el precio de venta. La cerveza sin alcohol no paga el primer componente.', en: 'The beer production tax gets a component of COP 330 per alcohol degree per 330 cc plus 10% of retail price. Non-alcoholic beer is exempt from the first component.' }, f: 'Arts. 34 a 36' },
+  { t: { es: 'Gaseosas y bebidas endulzadas (desde 2028)', en: 'Soda and sweetened drinks (from 2028)' }, d: { es: '$45 por cada 100 ml si tienen menos de 9 g de azúcar añadido (incluidas las "light" con edulcorante) y $76 si tienen 9 g o más. Una gaseosa azucarada de 1,5 litros pagaría $1.140.', en: 'COP 45 per 100 ml with under 9 g of added sugar (including diet drinks with sweeteners) and COP 76 with 9 g or more. A 1.5-liter sugary soda would pay COP 1,140.' }, f: 'Art. 56' },
+  { t: { es: 'Compras en Temu, Shein y otras plataformas', en: 'Purchases on Temu, Shein and other platforms' }, d: { es: 'Se deroga la exclusión de IVA para importaciones pequeñas (literal j del artículo 428), así que las compras de menos de 200 dólares también pagarían IVA.', en: 'The VAT exclusion for small imports (article 428, letter j) is repealed, so purchases under US$200 would also pay VAT.' }, f: 'Art. 106, num. 4 a' },
+  { t: { es: 'Carros y motos eléctricas', en: 'Electric cars and motorbikes' }, d: { es: 'Salen de la tarifa del 5% desde que entre en vigencia la ley y pasan al 19%.', en: 'They leave the 5% rate as soon as the law is in force and move to 19%.' }, f: 'Art. 106, num. 4 a' },
+  { t: { es: 'Más aportes a salud desde 2 salarios mínimos', en: 'Higher health contributions above 2 minimum wages' }, d: { es: 'Desde 2027 el empleado ya no paga siempre 4%: entre 2 y 4 salarios mínimos paga 5,5% y sube hasta 8%. Los independientes van de 12,5% a 15,5%. Haga la cuenta en la calculadora.', en: 'From 2027 employees no longer pay a flat 4%: between 2 and 4 minimum wages it is 5.5%, rising to 8%. The self-employed go from 12.5% to 15.5%. Try the calculator.' }, f: 'Art. 21' },
+  { t: { es: 'Renta de personas: nuevo escalón del 9%', en: 'Personal income tax: new 9% bracket' }, d: { es: 'Hoy se empieza a pagar desde 1.090 UVT de renta gravable al año; con el proyecto se paga 9% desde 720 UVT. La renta exenta del 25% del salario queda limitada a 630 UVT al año y el tope de deducciones y exenciones baja a 1.180 UVT. Se elimina la deducción por dependientes del artículo 336.', en: 'Today tax starts at 1,090 UVT of annual taxable income; under the bill a 9% rate applies from 720 UVT. The 25% salary exemption is capped at 630 UVT a year and the total cap on deductions and exemptions falls to 1,180 UVT. The dependents deduction in article 336 is removed.' }, f: 'Arts. 47, 48, 49 y 106' },
+  { t: { es: 'Empleadores de quienes ganan más de 2 salarios', en: 'Employers of workers earning over 2 minimum wages' }, d: { es: 'Hoy las empresas no pagan SENA, ICBF ni salud por trabajadores de hasta 10 salarios mínimos. Con el proyecto la exoneración total queda hasta 2 salarios; entre 2 y 3 pagan 1% SENA, 1% ICBF y 4% de salud; desde 3 salarios pagan todo.', en: 'Today companies pay no SENA, ICBF or health contributions for workers earning up to 10 minimum wages. Under the bill the full exemption covers up to 2; between 2 and 3 they pay 1% SENA, 1% ICBF and 4% health; above 3 they pay everything.' }, f: 'Arts. 20 y 21' },
+  { t: { es: 'Apuestas, juegos en línea y bancos', en: 'Gambling, online betting and banks' }, d: { es: 'Los juegos de suerte y azar (menos las loterías) pagan IVA del 19%; en internet, sobre cada depósito. Bancos, aseguradoras y comisionistas pagan 5 puntos adicionales de renta entre 2027 y 2030.', en: 'Games of chance (except lotteries) pay 19% VAT; online, on each deposit. Banks, insurers and brokers pay 5 extra income-tax points from 2027 to 2030.' }, f: 'Arts. 41 y 57' },
+];
+const MENOS = [
+  { t: { es: 'EfectIVA: devolución del IVA (desde 2028)', en: 'EfectIVA: VAT refund (from 2028)' }, d: { es: 'Es por persona, no por hogar. Devuelve el 100% del IVA pagado a quienes estén en pobreza extrema, pobreza y el primer tramo vulnerable; 50%, 40% y 30% a los demás tramos vulnerables, según el Sisbén. Se paga cada 15 días como máximo, con tope de 5,5 UVT al mes, y se calcula con la factura electrónica. Ningún hogar recibiría menos de lo que hoy le da la compensación del IVA.', en: 'It is per person, not per household. It returns 100% of VAT paid to people in extreme poverty, poverty and the lowest vulnerable bracket; 50%, 40% and 30% to other vulnerable brackets, per Sisbén. Paid at least every 15 days, capped at 5.5 UVT a month, and calculated from electronic invoices. No household would get less than today\'s VAT compensation.' }, f: 'Arts. 38 a 40' },
+  { t: { es: 'Comida que sigue sin IVA', en: 'Food that stays VAT-free' }, d: { es: 'Carnes de res, cerdo y pollo, pescado, leche, huevos, arroz, papa, yuca, hortalizas de vaina, panela, pan y arepa, agua, salchichón y mortadela, leche para bebés y toallas higiénicas siguen en las listas sin IVA.', en: 'Beef, pork, chicken, fish, milk, eggs, rice, potatoes, cassava, fresh pod vegetables, panela, bread and arepas, water, salchichón and mortadella, infant formula and sanitary pads remain VAT-free.' }, f: 'Arts. 42 y 46' },
+  { t: { es: 'Empresas', en: 'Businesses' }, d: { es: 'La renta empresarial baja de 35% a 33% en 2027 y a 31% desde 2028.', en: 'Corporate income tax falls from 35% to 33% in 2027 and 31% from 2028.' }, f: 'Art. 57' },
+  { t: { es: 'Deudores de la DIAN', en: 'People who owe the DIAN' }, d: { es: 'Quien estuviera en mora al 30 de septiembre de 2026 y pague el impuesto completo hasta el 30 de junio de 2027 paga solo el 40% de las sanciones e intereses al 5% anual.', en: 'Anyone in arrears as of Sept 30, 2026 who pays the full tax by June 30, 2027 pays only 40% of penalties and interest at 5% a year.' }, f: 'Art. 100' },
+  { t: { es: 'Impuesto al patrimonio', en: 'Wealth tax' }, d: { es: 'Se paga desde 95.500 UVT (hoy 72.000): 0,5% hasta 145.500 UVT y 1% por encima. Rige solo de 2027 a 2030.', en: 'Applies from 95,500 UVT (72,000 today): 0.5% up to 145,500 UVT and 1% above. Only for 2027 to 2030.' }, f: 'Arts. 66 a 68' },
+  { t: { es: 'Plásticos de un solo uso', en: 'Single-use plastics' }, d: { es: 'Se elimina ese impuesto.', en: 'That tax is eliminated.' }, f: 'Art. 106, num. 2' },
+  { t: { es: 'Alcaldías y gobernaciones', en: 'Cities and departments' }, d: { es: 'Más capacidad de endeudamiento, vigencias futuras para el primer año del siguiente gobierno y uso de excedentes del Fonpet.', en: 'More borrowing capacity, multi-year commitments for the next administration\'s first year and use of Fonpet surpluses.' }, f: 'Arts. 58 a 65' },
+];
+
+/* Aportes a salud (Art. 21 del PL 477): tabla desde el 1 de enero de 2027 */
+const SALUD = [ // [hasta SMLMV, empleado, independiente]
+  [1, 4, 12.5], [2, 4, 12.5], [4, 5.5, 13], [5, 6, 13.5], [10, 6.5, 14], [15, 7, 14.5], [20, 7.5, 15], [25, 8, 15.5],
+];
+const SMLMV = 1750905; // salario mínimo 2026
+const UVT = 52374;     // UVT 2026 (DIAN, Res. 000238 de 2025)
+
+/* La ley por dentro: estructura del texto radicado */
+const TITULOS = [
+  { t: { es: 'Título I · Reducción del Estado y salud', en: 'Title I · Shrinking the State and health' }, a: 'Arts. 1-37', items: [
+    ['2', { es: 'Aplazar o recortar en 2027 gastos por mandato legal sin concepto favorable del CONFIS; no programarlos de 2028 a 2030.', en: 'Defer or cut 2027 legally mandated spending lacking a favorable CONFIS opinion; not budget it 2028-2030.' }],
+    ['3-4', { es: 'Los sobrantes de los fondos públicos pasan al Tesoro (salvo salud y pensiones). Programa de eficiencia del gasto.', en: 'Unused public-fund balances go to the Treasury (except health and pensions). Spending-efficiency program.' }],
+    ['7', { es: 'Facultades por 6 meses al presidente para suprimir, fusionar o reestructurar ministerios, superintendencias y agencias, incluida la supresión de empleos.', en: 'Six-month powers for the president to abolish, merge or restructure ministries, superintendencies and agencies, including job cuts.' }],
+    ['8-10', { es: 'Límites a publicidad oficial, plan de austeridad y tope a compras de bienes y servicios.', en: 'Limits on official advertising, austerity plan and a cap on purchases of goods and services.' }],
+    ['11-15', { es: 'Programa para vender y aprovechar activos del Estado (empresas, lotes).', en: 'Program to sell and use State assets (companies, land).' }],
+    ['16', { es: 'Nómina del Estado: 20% menos en 2028, sin Fuerza Pública.', en: 'State payroll: 20% less in 2028, excluding the armed forces.' }],
+    ['17', { es: 'Contratos de prestación de servicios: 50% menos en 2027; desde 2028 no crecen más que el IPC.', en: 'Service contracts: 50% less in 2027; from 2028 no faster than inflation.' }],
+    ['20-21', { es: 'Exoneración de aportes solo hasta 2 salarios; nueva tabla de aportes a salud desde 2027.', en: 'Contribution exemption only up to 2 wages; new health contribution table from 2027.' }],
+    ['22-26', { es: 'Más plata para salud: cajas de compensación, excedentes del Fondo de Fomento al Empleo y traslados entre fondos.', en: 'More money for health: compensation funds, employment-fund surpluses and transfers between funds.' }],
+    ['27-37', { es: 'IVA a licores; nuevos impuestos a licores, cigarrillos y cerveza, con destino a la salud.', en: 'VAT on liquor; new taxes on liquor, cigarettes and beer, earmarked for health.' }],
+  ] },
+  { t: { es: 'Título II · EfectIVA e ingresos', en: 'Title II · EfectIVA and revenue' }, a: 'Arts. 38-56', items: [
+    ['38-40', { es: 'EfectIVA: devolución del IVA por persona desde 2028.', en: 'EfectIVA: per-person VAT refund from 2028.' }],
+    ['41', { es: 'IVA a juegos de suerte y azar, incluidos los de internet (no a loterías).', en: 'VAT on games of chance, including online (not lotteries).' }],
+    ['42-46', { es: 'Nuevas listas de bienes y servicios sin IVA desde 2028.', en: 'New lists of VAT-free goods and services from 2028.' }],
+    ['47-50', { es: 'Renta de personas: tabla con escalón de 9%, menos exenciones y nueva retención en la fuente.', en: 'Personal income tax: table with a 9% bracket, fewer exemptions and new withholding.' }],
+    ['53-55', { es: 'Cambios al impuesto al carbono.', en: 'Changes to the carbon tax.' }],
+    ['56', { es: 'Impuesto a bebidas ultraprocesadas endulzadas desde 2028.', en: 'Tax on sweetened ultra-processed drinks from 2028.' }],
+  ] },
+  { t: { es: 'Título III · Inversión y empleo', en: 'Title III · Investment and jobs' }, a: 'Arts. 57-68', items: [
+    ['57', { es: 'Renta de empresas: 33% en 2027 y 31% desde 2028; 5 puntos extra al sector financiero 2027-2030.', en: 'Corporate tax: 33% in 2027 and 31% from 2028; 5 extra points for the financial sector 2027-2030.' }],
+    ['58-65', { es: 'Más margen de endeudamiento e inversión para departamentos y municipios.', en: 'More borrowing and investment room for departments and municipalities.' }],
+    ['66-68', { es: 'Impuesto al patrimonio desde 95.500 UVT, solo de 2027 a 2030.', en: 'Wealth tax from 95,500 UVT, only 2027-2030.' }],
+  ] },
+  { t: { es: 'Título IV · Atracción de capitales', en: 'Title IV · Attracting capital' }, a: 'Arts. 69-71', items: [
+    ['69', { es: 'RUGE: régimen con incentivos y estabilidad jurídica para grandes inversiones.', en: 'RUGE: incentives and legal stability for large investments.' }],
+    ['70-71', { es: 'Impuesto de normalización para quien tenga bienes sin declarar, incluidos activos digitales.', en: 'Normalization tax for undeclared assets, including digital assets.' }],
+  ] },
+  { t: { es: 'Título V · Regla fiscal', en: 'Title V · Fiscal rule' }, a: 'Arts. 72-81', items: [
+    ['72-78', { es: 'Nueva regla fiscal con cuenta de control y corrección automática cuando el Gobierno se desvíe.', en: 'New fiscal rule with a control account and automatic correction if the Government deviates.' }],
+    ['79', { es: 'Cambios al Comité Autónomo de la Regla Fiscal.', en: 'Changes to the Independent Fiscal Rule Committee.' }],
+    ['80-81', { es: 'Obligaciones de la Nación con el Fonpet.', en: 'National obligations to Fonpet.' }],
+  ] },
+  { t: { es: 'Título VI · Evasión, contrabando y DIAN', en: 'Title VI · Evasion, smuggling and DIAN' }, a: 'Arts. 82-104', items: [
+    ['82-85', { es: 'Política contra la evasión y el contrabando; cambios al delito de contrabando.', en: 'Policy against evasion and smuggling; changes to the smuggling offense.' }],
+    ['86', { es: 'Reglas de impuestos para criptoactivos y activos digitales.', en: 'Tax rules for crypto and digital assets.' }],
+    ['88-93', { es: 'Más sanciones por no facturar o facturar mal, incluido el cierre del negocio.', en: 'Stiffer penalties for not issuing or misissuing invoices, including closing the business.' }],
+    ['96', { es: 'Facultades por 6 meses para cambiar la carrera administrativa de la DIAN.', en: 'Six-month powers to change the DIAN civil-service system.' }],
+    ['99-104', { es: 'Alivios: facilidades de pago, rebaja de sanciones e intereses, terminación y conciliación de pleitos con la DIAN.', en: 'Relief: payment plans, reduced penalties and interest, settling disputes with the DIAN.' }],
+  ] },
+  { t: { es: 'Título VII · Vigencia', en: 'Title VII · Entry into force' }, a: 'Arts. 105-106', items: [
+    ['106', { es: 'Rige desde su promulgación, salvo las fechas propias de cada artículo. Deroga, entre otros, el IVA del 5% desde 2028 y el impuesto a plásticos de un solo uso.', en: 'In force from promulgation, except each article\'s own dates. Repeals, among others, the 5% VAT from 2028 and the single-use plastics tax.' }],
+  ] },
+];
+
+const VOCES = {
+  favor: [
+    { q: 'Miguel Gómez Martínez', c: { es: 'Ministro de Hacienda', en: 'Finance Minister' }, d: { es: 'Dice que el país quedó en una situación muy difícil, que hay que frenar el aumento de la deuda y que la inversión está en su punto más bajo en 50 años.', en: 'Says the country was left in a very difficult situation, that debt growth must be stopped and that investment is at a 50-year low.' }, f: 'La República', u: 'https://www.larepublica.co/economia/estos-son-los-cinco-puntos-claves-que-contiene-la-ley-de-rescate-economico-del-gobierno-4514369' },
+    { q: 'José Manuel Restrepo', c: { es: 'Vicepresidente', en: 'Vice President' }, d: { es: 'Advirtió que uno de cada tres pesos de impuestos se destina a la deuda y que, sin ajuste, el problema fiscal se volvería crisis en 2027.', en: 'Warned that one in every three tax pesos goes to debt and that, without an adjustment, the fiscal problem would become a crisis in 2027.' }, f: 'Infobae · El Tiempo', u: 'https://www.infobae.com/colombia/2026/10/29/gobierno-radico-la-ley-de-rescate-economico-el-vicepresidente-restrepo-explico-en-que-consiste-y-advirtio-que-uno-de-cada-tres-pesos-de-impuestos-se-destina-a-la-deuda/' },
+    { q: 'Mauricio Cárdenas', c: { es: 'Exministro de Hacienda', en: 'Former Finance Minister' }, d: { es: 'Pidió acompañar al Gobierno en la discusión del proyecto.', en: 'Called for supporting the Government in the bill\'s debate.' }, f: 'El Universal', u: 'https://www.eluniversal.com.co/loterias/chances/2026/10/29/ley-de-rescate-economico-de-de-la-espriella-enfrenta-rechazo-por-nuevos-impuestos/' },
+    { q: { es: 'Congresistas que respaldan los recortes', en: 'Lawmakers backing the cuts' }, c: { es: 'Varias bancadas', en: 'Several caucuses' }, d: { es: 'Destacan la reducción del 20% en nómina, del 50% en contratistas, la baja de la renta empresarial y los límites a gastos en eventos y publicidad oficial.', en: 'They highlight the 20% payroll cut, 50% contractor cut, lower corporate tax and limits on spending for events and official advertising.' }, f: 'Yahoo Noticias', u: 'https://es-us.noticias.yahoo.com/cuenten-conmigo-aumentar-impuestos-clase-010440788.html' },
+  ],
+  contra: [
+    { q: 'Gabriel Vallejo', c: { es: 'Director del Centro Democrático', en: 'Head of Centro Democrático party' }, d: { es: 'Rechaza ponerle IVA al café en un país cafetero y defiende un Estado pequeño con menos impuestos.', en: 'Rejects taxing coffee in a coffee-growing country and defends a small State with lower taxes.' }, f: 'Semana · El Colombiano', u: 'https://www.elcolombiano.com/colombia/centro-democratico-anuncia-apoya-reduccion-gasto-publico-bajar-impuestos-NI42979703' },
+    { q: { es: 'Representantes del Centro Democrático', en: 'Centro Democrático representatives' }, c: { es: 'Partido de gobierno', en: 'Governing coalition party' }, d: { es: 'Anuncian que no votarán los artículos que suban impuestos a la clase media: "las familias no aguantan un impuesto más".', en: 'They say they will not vote for articles raising taxes on the middle class: "families can\'t take one more tax".' }, f: 'El Colombiano', u: 'https://www.elcolombiano.com/colombia/centro-democratico-anuncia-apoya-reduccion-gasto-publico-bajar-impuestos-NI42979703' },
+    { q: 'Briceño', c: { es: 'Congresista', en: 'Lawmaker' }, d: { es: 'Le preocupan los cambios al IVA, a la renta de personas y a los parafiscales para la clase media y los independientes, y pide recortar también la UNP y los esquemas de seguridad.', en: 'Worried about changes to VAT, personal income tax and payroll levies for the middle class and the self-employed; also wants cuts to the UNP and security details.' }, f: 'Semana', u: 'https://www.semana.com/economia/articulo/la-clase-media-siempre-termina-pagando-reacciones-a-la-radicacion-del-proyecto-de-ley-de-rescate-economico/202640/' },
+    { q: 'Andrés Valencia', c: { es: 'Exministro de Agricultura', en: 'Former Agriculture Minister' }, d: { es: 'Advierte que gravar al 19% frutas, verduras, granos, café y cacao subiría precios y empujaría la informalidad y el contrabando.', en: 'Warns that a 19% tax on fruit, vegetables, grains, coffee and cocoa would raise prices and push informality and smuggling.' }, f: 'Infobae', u: 'https://www.infobae.com/colombia/2026/10/30/entre-respaldos-y-advertencias-la-clase-politica-reacciona-a-la-ley-de-rescate-economico-emitida-por-el-gobierno-de-la-espriella/' },
+    { q: 'Simón Gómez', c: { es: 'Director de Centro Vida', en: 'Director of Centro Vida' }, d: { es: 'Le preocupa que las facultades extraordinarias al presidente no tengan límites claros.', en: 'Concerned that the president\'s special powers lack clear limits.' }, f: 'La Silla Vacía', u: 'https://www.lasillavacia.com/silla-nacional/mas-tributaria-que-recorte-claves-de-la-ley-de-rescate-de-abelardo/' },
+    { q: 'Heidy Sánchez', c: { es: 'Concejal de Bogotá', en: 'Bogotá city councilor' }, d: { es: 'Cuestiona el cobro de IVA a todas las compras en Temu, Shein y Amazon, sin importar el monto.', en: 'Questions charging VAT on all Temu, Shein and Amazon purchases regardless of amount.' }, f: 'Infobae', u: 'https://www.infobae.com/colombia/2026/10/30/entre-respaldos-y-advertencias-la-clase-politica-reacciona-a-la-ley-de-rescate-economico-emitida-por-el-gobierno-de-la-espriella/' },
+  ]
+};
+
+const DOCS = [
+  { t: { es: 'Ficha oficial del proyecto', en: 'Official bill page' }, d: { es: 'Cámara de Representantes: número 477/2026C, estado y autor.', en: 'House of Representatives: number 477/2026C, status and author.' }, u: FICHA },
+  { t: { es: 'Texto radicado (PDF)', en: 'Filed text (PDF)' }, d: { es: 'Los 106 artículos tal como se entregaron el 29 de octubre, con la firma del ministro de Hacienda.', en: 'The 106 articles as filed on October 29, signed by the Finance Minister.' }, u: PDF },
+  { t: { es: 'Senado de la República', en: 'Senate of Colombia' }, d: { es: 'Agenda de comisiones y plenarias, para cuando el proyecto llegue al Senado.', en: 'Committee and plenary agenda, for when the bill reaches the Senate.' }, u: 'https://www.senado.gov.co' },
+];
+
+/* ---------- Utilidades ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const diaCol = d => new Intl.DateTimeFormat('en-CA', { timeZone: ZONA, year: 'numeric', month: '2-digit', day: '2-digit' }).format(d);
+const fechaLarga = d => new Intl.DateTimeFormat(idioma === 'en' ? 'en-US' : 'es-CO', { timeZone: ZONA, weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(d);
+const fechaCorta = s => s ? new Intl.DateTimeFormat(idioma === 'en' ? 'en-US' : 'es-CO', { timeZone: ZONA, day: 'numeric', month: 'short', year: 'numeric' }).format(new Date(s + 'T12:00:00-05:00')) : '';
+function hace(iso) {
+  const m = Math.round((Date.now() - new Date(iso)) / 60000);
+  const en = idioma === 'en';
+  if (m < 1) return en ? 'just now' : 'ahora';
+  if (m < 60) return en ? `${m} min ago` : `hace ${m} min`;
+  const h = Math.round(m / 60);
+  if (h < 24) return en ? `${h} h ago` : `hace ${h} h`;
+  return new Intl.DateTimeFormat(en ? 'en-US' : 'es-CO', { timeZone: ZONA, day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' }).format(new Date(iso));
+}
+function toast(m) { const t = $('#toast'); t.textContent = m; t.classList.add('ver'); clearTimeout(toast.k); toast.k = setTimeout(() => t.classList.remove('ver'), 2800); }
+
+/* ---------- Estado ---------- */
+let datos = { noticias: [], videos: [], senales: [] };
+let tramite = null;
+let vivo = [];
+let mostrar = 14;
+
+function todasLasNoticias() {
+  const m = new Map();
+  for (const n of [...vivo, ...datos.noticias]) {
+    const k = n.titulo.toLowerCase().normalize('NFD').replace(/[^a-z0-9]/g, '').slice(0, 60);
+    if (!m.has(k)) m.set(k, n); else if (!m.get(k).imagen && n.imagen) m.get(k).imagen = n.imagen;
+  }
+  return [...m.values()].sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+}
+
+/* ---------- Pintar ---------- */
+function traducirInterfaz() {
+  document.documentElement.lang = idioma;
+  document.querySelectorAll('[data-t]').forEach(el => {
+    if (!el.dataset.es) el.dataset.es = el.innerHTML;
+    el.innerHTML = idioma === 'en' && T.en[el.dataset.t] ? T.en[el.dataset.t] : el.dataset.es;
+  });
+  document.querySelectorAll('[data-tp]').forEach(el => {
+    if (!el.dataset.es) el.dataset.es = el.placeholder;
+    el.placeholder = idioma === 'en' && T.en[el.dataset.tp] ? T.en[el.dataset.tp] : el.dataset.es;
+  });
+  document.querySelectorAll('.idioma button').forEach(b => b.classList.toggle('activo', b.dataset.lang === idioma));
+}
+
+const fotosConImagen = () => todasLasNoticias().filter(n => n.imagen);
+
+let carIdx = 0, carTimer;
+function pintarPortada() {
+  const fotos = fotosConImagen().slice(0, 6);
+  const cont = $('#fotos');
+  cont.innerHTML = fotos.map((n, i) => `<div class="foto" style="background-image:url('${esc(n.imagen)}')"></div>`).join('');
+  $('#puntosCar').innerHTML = fotos.map((_, i) => `<button aria-label="${i + 1}"></button>`).join('');
+  $('#puntosCar').querySelectorAll('button').forEach((b, i) => b.onclick = () => { carIdx = i; mostrarFoto(); reiniciar(); });
+  const mostrarFoto = () => {
+    const capas = cont.querySelectorAll('.foto');
+    if (!capas.length) return;
+    capas.forEach((c, i) => c.classList.toggle('ver', i === carIdx));
+    $('#puntosCar').querySelectorAll('button').forEach((b, i) => b.classList.toggle('activo', i === carIdx));
+    const n = fotos[carIdx];
+    $('#pieFoto').innerHTML = `<i>${esc(n.fuente || '')}</i><a href="${esc(n.enlace)}" target="_blank" rel="noopener">${esc(n.titulo)}</a>`;
+  };
+  const reiniciar = () => { clearInterval(carTimer); carTimer = setInterval(() => { carIdx = (carIdx + 1) % fotos.length; mostrarFoto(); }, 7000); };
+  carIdx = Math.min(carIdx, Math.max(0, fotos.length - 1));
+  mostrarFoto(); reiniciar();
+}
+
+function pintarIndicadores() {
+  const dias = Math.max(0, Math.floor((new Date(diaCol(new Date()) + 'T00:00:00Z') - new Date(RADICACION + 'T00:00:00Z')) / 86400000));
+  animarNumero($('#dias'), dias);
+  const p = tramite?.pasos || {};
+  const hechos = PASOS.filter(s => p[s.id]?.hecho).length;
+  $('#pasoN').textContent = `${hechos}/${PASOS.length}`;
+  const esLey = tramite?.esLey, hundido = tramite?.hundido;
+  $('#esLey').textContent = esLey ? (idioma === 'en' ? 'Yes' : 'Sí') + (tramite.numeroLey ? ` · ${tramite.numeroLey}` : '') : hundido ? (idioma === 'en' ? 'Sank' : 'Se hundió') : (idioma === 'en' ? 'Not yet' : 'Todavía no');
+  $('#indLey').classList.toggle('si', !!esLey);
+  const est = $('#estado');
+  est.classList.toggle('ley', !!esLey);
+  const actual = PASOS.find(s => !p[s.id]?.hecho);
+  $('#estadoTxt').textContent = esLey ? (idioma === 'en' ? 'It is now law' : 'Ya es ley de la República')
+    : hundido ? (idioma === 'en' ? 'The bill sank' : 'El proyecto se hundió')
+    : (idioma === 'en' ? 'In Congress · next: ' : 'En el Congreso · sigue: ') + L(actual?.t || PASOS[0].t).toLowerCase();
+}
+
+function animarNumero(el, fin) {
+  const ini = performance.now(), dur = 1200;
+  const paso = t => { const k = Math.min(1, (t - ini) / dur); el.textContent = Math.round(fin * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(paso); };
+  requestAnimationFrame(paso);
+}
+
+function tarjeta(n, extra = '') {
+  const img = n.imagen ? `<div class="img" style="background-image:url('${esc(n.imagen)}')"></div>` : `<div class="img sin-foto"><span>${esc(n.fuente || 'Ley de Rescate')}</span></div>`;
+  return `<a class="nota ${extra}" href="${esc(n.enlace)}" target="_blank" rel="noopener">${n.vivo ? `<span class="vivo chip">${idioma === 'en' ? 'LIVE' : 'EN VIVO'}</span>` : ''}${img}
+    <div class="txt"><h3>${esc(n.titulo)}</h3>${n.resumen ? `<p>${esc(n.resumen)}</p>` : ''}<div class="meta"><b>${esc(n.fuente || '')}</b><span>${hace(n.fecha)}</span></div></div></a>`;
+}
+
+function pintarHoy() {
+  const hoy = diaCol(new Date());
+  const ayer = diaCol(new Date(Date.now() - 86400000));
+  $('#hoyFecha').textContent = fechaLarga(new Date()) + (idioma === 'en' ? ' · Colombia time' : ' · hora de Colombia');
+  const todas = todasLasNoticias();
+  let lista = todas.filter(n => diaCol(new Date(n.fecha)) === hoy);
+  let etiqueta = '';
+  if (lista.length < 3) { lista = todas.filter(n => [hoy, ayer].includes(diaCol(new Date(n.fecha)))); }
+  if (lista.length < 3) { lista = todas.slice(0, 7); etiqueta = idioma === 'en' ? 'No new stories yet today. The latest:' : 'Hoy todavía no hay notas nuevas. Lo más reciente:'; }
+  lista = [...lista.filter(n => n.imagen), ...lista.filter(n => !n.imagen)].slice(0, 7);
+  $('#vivoTag').hidden = !vivo.length;
+  $('#hoyLista').innerHTML = (etiqueta ? `<div class="vacio" style="grid-column:1/-1">${etiqueta}</div>` : '') +
+    (lista.length ? lista.map((n, i) => tarjeta(n, i === 0 ? 'destacada' : '')).join('') : `<div class="vacio">${idioma === 'en' ? 'No news loaded.' : 'No se pudieron cargar noticias.'}</div>`);
+}
+
+function pintarCinta() {
+  const t = todasLasNoticias().slice(0, 14);
+  const html = t.map(n => `<a href="${esc(n.enlace)}" target="_blank" rel="noopener">${esc(n.titulo)}</a>`).join('');
+  $('#cinta').innerHTML = html + html;
+}
+
+function pintarTramite() {
+  const p = tramite?.pasos || { radicacion: { hecho: true, fecha: RADICACION } };
+  const hechos = PASOS.filter(s => p[s.id]?.hecho).length;
+  const idxActual = PASOS.findIndex(s => !p[s.id]?.hecho);
+  const pct = Math.round(hechos / PASOS.length * 100);
+  $('#progTxt').textContent = idioma === 'en' ? `${hechos} of ${PASOS.length} steps done` : `${hechos} de ${PASOS.length} pasos cumplidos`;
+  $('#progPct').textContent = pct + '%';
+  setTimeout(() => $('#progBarra').style.width = Math.max(pct, 4) + '%', 300);
+  $('#pasos').innerHTML = PASOS.map((s, i) => {
+    const e = p[s.id] || {};
+    const clase = e.hecho ? 'hecho' : i === idxActual ? 'actual' : '';
+    const cuando = e.hecho ? (e.fecha ? fechaCorta(e.fecha) : (idioma === 'en' ? 'Done' : 'Cumplido')) : i === idxActual ? (idioma === 'en' ? 'Next' : 'Lo que sigue') : (idioma === 'en' ? 'Pending' : 'Pendiente');
+    return `<li class="paso ${clase}"><div class="num">${i + 1}</div><div><h3>${esc(L(s.t))}</h3><p>${esc(L(s.d))}</p><span class="cuando">${esc(cuando)}</span></div></li>`;
+  }).join('');
+  const sen = (datos.senales || []).slice(0, 6);
+  $('#senales').innerHTML = `<h3>${idioma === 'en' ? 'Signals spotted by the robot in the news' : 'Señales que el robot vio en las noticias'}</h3>` +
+    (sen.length ? `<ul>${sen.map(s => `<li><a href="${esc(s.enlace)}" target="_blank" rel="noopener">${esc(s.titulo)}<small>${esc(s.fuente || '')} · ${hace(s.fecha)}</small></a></li>`).join('')}</ul>`
+      : `<p style="color:var(--suave);font-size:.88rem;margin-top:6px">${idioma === 'en' ? 'No news yet about rapporteurs, debates or votes. When it appears, it will show here.' : 'Todavía no hay noticias de ponentes, debates o votaciones. Cuando salgan, aparecerán aquí.'}</p>`);
+}
+
+function pintarPilares() {
+  const fotos = fotosConImagen();
+  $('#pilares').innerHTML = PILARES.map((p, i) => {
+    const f = fotos[(i + 2) % Math.max(1, fotos.length)];
+    return `<article class="pilar revelar"><div class="fondo" style="${f ? `background-image:url('${esc(f.imagen)}')` : ''}"></div>
+      <span class="n">${p.n}</span><div class="cifra">${esc(idioma === 'en' && p.cifraEn ? p.cifraEn : p.cifra)}</div><div class="cifra-txt">${esc(L(p.cifraT))}</div>
+      <h3>${esc(L(p.t))}</h3><ul>${L(p.l).map(x => `<li>${esc(x)}</li>`).join('')}</ul></article>`;
+  }).join('');
+  $('#cifras').innerHTML = CIFRAS.map(c => `<div class="cifra-c"><b>${esc(idioma === 'en' && c.en ? c.en : c.v)}</b><span>${esc(L(c.t))}</span></div>`).join('');
+  observar();
+}
+
+function pintarBolsillo() {
+  const item = x => `<div class="item"><b>${esc(L(x.t))}</b><p>${esc(L(x.d))}</p><small>${idioma === 'en' ? 'Source' : 'Fuente'}: ${esc(x.f)}</small></div>`;
+  $('#colMas').innerHTML = MAS.map(item).join('');
+  $('#colMenos').innerHTML = MENOS.map(item).join('');
+}
+
+let lado = 'favor';
+function pintarVoces() {
+  $('#vocesLista').innerHTML = VOCES[lado].map(v => `<div class="voz ${lado}"><h3>${esc(L(v.q))}</h3><div class="cargo">${esc(L(v.c))}</div><p>${esc(L(v.d))}</p><a href="${esc(v.u)}" target="_blank" rel="noopener">${esc(v.f)}</a></div>`).join('');
+  document.querySelectorAll('[data-tipo]').forEach(b => b.onclick = () => { tipo = b.dataset.tipo; document.querySelectorAll('[data-tipo]').forEach(x => x.classList.toggle('activo', x === b)); pintarCalc(); });
+$('#salario').addEventListener('input', e => { const d = e.target.value.replace(/\D/g, ''); e.target.value = d ? Number(d).toLocaleString('es-CO') : ''; pintarCalc(); });
+$('#rapidos').innerHTML = [1, 2, 3, 5, 10].map(n => `<button data-n="${n}">${n} SMLMV</button>`).join('');
+$('#rapidos').querySelectorAll('button').forEach(b => b.onclick = () => { $('#salario').value = Math.round(b.dataset.n * SMLMV).toLocaleString('es-CO'); pintarCalc(); });
+$('#buscarArt').addEventListener('input', pintarArticulos);
+document.querySelectorAll('[data-voz]').forEach(b => b.classList.toggle('activo', b.dataset.voz === lado));
+}
+
+function pintarVideos() {
+  const v = (datos.videos || []).slice(0, 12);
+  $('#videosLista').innerHTML = v.length ? v.map(x => `<div class="video"><div class="marco" data-id="${esc(x.id)}" style="background-image:url('https://i.ytimg.com/vi/${esc(x.id)}/hqdefault.jpg')"></div>
+      <div class="txt"><h3>${esc(x.titulo)}</h3><div class="meta"><b>${esc(x.canal)}</b><span>${hace(x.fecha)}</span></div></div></div>`).join('')
+    : `<div class="vacio">${idioma === 'en' ? 'No videos yet.' : 'Todavía no hay videos.'}</div>`;
+  $('#videosLista').querySelectorAll('.marco').forEach(m => m.onclick = () => {
+    m.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${m.dataset.id}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="video"></iframe>`;
+    m.onclick = null; m.style.cursor = 'default'; m.classList.add('jugando');
+  });
+}
+document.head.insertAdjacentHTML('beforeend', '<style>.marco.jugando::after{display:none}</style>');
+
+function pintarLista() {
+  const q = $('#buscar').value.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  let l = todasLasNoticias();
+  if (q) l = l.filter(n => (n.titulo + ' ' + (n.resumen || '') + ' ' + (n.fuente || '')).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').includes(q));
+  $('#lista').innerHTML = l.slice(0, mostrar).map(n => `<a class="fila" href="${esc(n.enlace)}" target="_blank" rel="noopener"><div class="img ${n.imagen ? '' : 'sin-foto'}" style="${n.imagen ? `background-image:url('${esc(n.imagen)}')` : ''}"></div>
+    <div class="txt"><h3>${esc(n.titulo)}</h3><div class="meta" style="margin-top:6px"><b>${esc(n.fuente || '')}</b><span>${hace(n.fecha)}</span>${n.vivo ? `<span class="vivo" style="padding:1px 6px">${idioma === 'en' ? 'LIVE' : 'EN VIVO'}</span>` : ''}</div></div></a>`).join('')
+    || `<div class="vacio">${idioma === 'en' ? 'Nothing found. Try "Live search".' : 'No hay resultados. Pruebe con "Buscar en vivo".'}</div>`;
+  $('#masNoticias').style.display = l.length > mostrar ? '' : 'none';
+}
+
+function pintarDocs() {
+  $('#docs').innerHTML = DOCS.map(d => `<a class="doc" href="${esc(d.u)}" target="_blank" rel="noopener"><b>${esc(L(d.t))}</b><span>${esc(L(d.d))}</span><br><em>${idioma === 'en' ? 'OPEN' : 'ABRIR'}</em></a>`).join('');
+}
+
+let tipo = 'emp';
+const pesos = n => '$' + Math.round(n).toLocaleString('es-CO');
+function tasaSalud(sal, t) {
+  const smlmv = sal / SMLMV;
+  const fila = SALUD.find(f => smlmv <= f[0] + 1e-9) || SALUD[SALUD.length - 1];
+  return t === 'emp' ? fila[1] : fila[2];
+}
+function pintarCalc() {
+  const sal = Number(($('#salario').value || '').replace(/\D/g, '')) || 0;
+  const ibc = Math.min(Math.max(sal, SMLMV), 25 * SMLMV);
+  const hoyT = tipo === 'emp' ? 4 : 12.5;
+  const nuevaT = tasaSalud(ibc, tipo);
+  const hoy = ibc * hoyT / 100, nuevo = ibc * nuevaT / 100, dif = nuevo - hoy;
+  const en = idioma === 'en';
+  $('#calcRes').innerHTML = `
+    <div class="res"><b>${hoyT.toString().replace('.', en ? '.' : ',')}%</b><span>${en ? 'Today' : 'Hoy'} · ${pesos(hoy)} ${en ? 'a month' : 'al mes'}</span></div>
+    <div class="res ${dif > 0 ? 'sube' : 'igual'}"><b>${nuevaT.toString().replace('.', en ? '.' : ',')}%</b><span>${en ? 'With the bill' : 'Con el proyecto'} · ${pesos(nuevo)} ${en ? 'a month' : 'al mes'}</span></div>
+    <div class="res ${dif > 0 ? 'sube' : 'igual'}"><b>${dif > 0 ? '+' + pesos(dif) : (en ? 'No change' : 'Igual')}</b><span>${en ? 'Difference per month' : 'Diferencia al mes'}</span></div>
+    <div class="res ${dif > 0 ? 'sube' : 'igual'}"><b>${dif > 0 ? '+' + pesos(dif * 12) : '$0'}</b><span>${en ? 'Difference per year' : 'Diferencia al año'}</span></div>
+    <div class="res" style="grid-column:1/-1"><span>${(ibc / SMLMV).toFixed(1).replace('.', en ? '.' : ',')} ${en ? 'minimum wages' : 'salarios mínimos'} · ${en ? 'minimum wage 2026' : 'salario mínimo 2026'}: ${pesos(SMLMV)}. ${tipo === 'ind' ? (en ? 'For the self-employed, enter the contribution base (usually 40% of income).' : 'Para independientes, escriba el ingreso base de cotización (normalmente el 40% de lo que factura).') : (en ? 'The employer would pay 8.5% on top, unless exempt.' : 'El empleador aporta aparte el 8,5%, salvo que esté exonerado.')}</span></div>`;
+}
+function pintarRenta() {
+  const filas = [[0, 720, '0%'], [720, 1090, '9%', true], [1090, 1700, '19%'], [1700, 4100, '28%'], [4100, 8670, '33%'], [8670, null, '39%']];
+  const en = idioma === 'en';
+  const mes = u => pesos(u * UVT / 12);
+  $('#tablaRenta').innerHTML = `<table class="tabla"><tr><th>${en ? 'Annual UVT' : 'UVT al año'}</th><th>${en ? 'Approx. per month' : 'Aprox. al mes'}</th><th>${en ? 'Rate' : 'Tarifa'}</th></tr>` +
+    filas.map(f => `<tr class="${f[3] ? 'nuevo' : ''}"><td>${f[0].toLocaleString('es-CO')} – ${f[1] ? f[1].toLocaleString('es-CO') : (en ? 'and up' : 'en adelante')}</td><td>${mes(f[0])}${f[1] ? ' – ' + mes(f[1]) : '+'}</td><td><b>${f[2]}</b></td></tr>`).join('') +
+    `</table><p class="mini">${en ? 'The red row is new: today nobody pays below 1,090 UVT. The 35% and 37% brackets disappear and 39% starts at 8,670 UVT.' : 'La fila roja es nueva: hoy no se paga por debajo de 1.090 UVT. Desaparecen los escalones de 35% y 37%, y el 39% empieza en 8.670 UVT.'}</p>`;
+}
+function pintarComida() {
+  const si = { es: ['Carne de res y cerdo', 'Pollo', 'Pescado', 'Leche', 'Huevos', 'Arroz', 'Papa', 'Yuca', 'Panela', 'Pan y arepa', 'Agua', 'Salchichón y mortadela', 'Leche de bebé', 'Medicamentos', 'Toallas higiénicas', 'Gas y luz'],
+               en: ['Beef and pork', 'Chicken', 'Fish', 'Milk', 'Eggs', 'Rice', 'Potatoes', 'Cassava', 'Panela', 'Bread and arepas', 'Water', 'Salchichón and mortadella', 'Infant formula', 'Medicines', 'Sanitary pads', 'Gas and electricity'] };
+  const no = { es: ['Café', 'Azúcar', 'Chocolate', 'Pastas', 'Aceites', 'Frutas', 'Tomate, cebolla y otras verduras', 'Maíz', 'Fríjol seco', 'Cacao'],
+               en: ['Coffee', 'Sugar', 'Chocolate', 'Pasta', 'Oils', 'Fruit', 'Tomato, onion and other vegetables', 'Corn', 'Dry beans', 'Cocoa'] };
+  const en = idioma === 'en';
+  $('#comida').innerHTML = `<div class="sub-c" style="color:var(--verde)">${en ? 'Stays VAT-free' : 'Sigue sin IVA'}</div><ul class="lista-c si">${L(si).map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    <div class="sub-c" style="color:#ff8b9b">${en ? 'Not on the lists: would pay 19%' : 'No aparece en las listas: pagaría 19%'}</div><ul class="lista-c no">${L(no).map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    <p class="mini" style="margin-top:12px">${en ? 'Our reading of the filed text, which lists goods by tariff code. Check the full lists in the PDF under Documents.' : 'Lectura del texto radicado, que enumera los bienes por partida arancelaria. Las listas completas están en el PDF de Documentos.'}</p>`;
+}
+const abiertos = new Set([0]);
+function pintarArticulos() {
+  const q = ($('#buscarArt').value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const norm = x => x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  $('#titulos').innerHTML = TITULOS.map((tt, i) => {
+    const items = tt.items.filter(it => !q || norm(L(it[1])).includes(q) || norm(L(tt.t)).includes(q));
+    if (q && !items.length) return '';
+    const abierto = q || abiertos.has(i);
+    return `<div class="titulo ${abierto ? 'abierto' : ''}" data-i="${i}"><button>${esc(L(tt.t))}<small>${tt.a}</small></button>
+      <div class="arts">${items.map(it => `<div class="art"><b>${idioma === 'en' ? 'Art.' : 'Art.'} ${it[0]}</b><span>${esc(L(it[1]))}</span></div>`).join('')}</div></div>`;
+  }).join('') || `<div class="vacio">${idioma === 'en' ? 'No articles match.' : 'Ningún artículo coincide.'}</div>`;
+  $('#titulos').querySelectorAll('.titulo>button').forEach(b => b.onclick = () => {
+    const i = +b.parentElement.dataset.i; abiertos.has(i) ? abiertos.delete(i) : abiertos.add(i); b.parentElement.classList.toggle('abierto');
+  });
+}
+
+function pintarTodo() {
+  traducirInterfaz();
+  pintarPortada(); pintarIndicadores(); pintarCinta(); pintarHoy(); pintarTramite(); pintarPilares(); pintarBolsillo(); pintarCalc(); pintarRenta(); pintarComida(); pintarArticulos(); pintarVoces(); pintarVideos(); pintarLista(); pintarDocs();
+  if (datos.actualizado) $('#ultima').textContent = new Intl.DateTimeFormat(idioma === 'en' ? 'en-US' : 'es-CO', { timeZone: ZONA, dateStyle: 'medium', timeStyle: 'short' }).format(new Date(datos.actualizado));
+  observar();
+}
+
+/* ---------- Datos ---------- */
+async function cargarDatos(forzar) {
+  const v = forzar ? '?t=' + Date.now() : '?h=' + Math.floor(Date.now() / 600000);
+  const [n, t] = await Promise.allSettled([
+    fetch('noticias.json' + v, { cache: forzar ? 'no-store' : 'default' }).then(r => r.json()),
+    fetch('tramite.json' + v, { cache: forzar ? 'no-store' : 'default' }).then(r => r.json()),
+  ]);
+  if (n.status === 'fulfilled') datos = n.value;
+  if (t.status === 'fulfilled') tramite = t.value;
+}
+
+// Búsqueda en vivo (GDELT): noticias de las últimas horas, directo desde el celular
+async function buscarEnVivo(extra = '') {
+  const q = `("ley de rescate" OR "rescate económico" OR "rescate fiscal")${extra ? ' ' + extra : ''} sourcecountry:CO`;
+  const url = `https://api.gdeltproject.org/api/v2/doc/doc?query=${encodeURIComponent(q)}&mode=artlist&format=json&maxrecords=40&sort=datedesc&timespan=3d`;
+  const ctl = new AbortController(); const k = setTimeout(() => ctl.abort(), 12000);
+  try {
+    const r = await fetch(url, { signal: ctl.signal });
+    const j = JSON.parse(await r.text());
+    const nuevos = (j.articles || []).map(a => {
+      const s = a.seendate || '';
+      const fecha = s ? `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}T${s.slice(9, 11)}:${s.slice(11, 13)}:${s.slice(13, 15)}Z` : new Date().toISOString();
+      return { titulo: a.title, enlace: a.url, fuente: (a.domain || '').replace(/^www\./, ''), fecha, imagen: a.socialimage || '', vivo: true };
+    }).filter(a => a.titulo && a.enlace);
+    const ya = new Set(datos.noticias.map(n => n.enlace));
+    vivo = nuevos.filter(a => !ya.has(a.enlace));
+    return vivo.length;
+  } catch { return -1; } finally { clearTimeout(k); }
+}
+
+async function actualizar(manual) {
+  const b = $('#actualizar'); b.classList.add('girando');
+  await cargarDatos(manual);
+  pintarTodo();
+  const nv = await buscarEnVivo();
+  if (nv > 0) { pintarHoy(); pintarCinta(); pintarLista(); pintarPortada(); }
+  b.classList.remove('girando');
+  if (manual) toast(nv > 0 ? (idioma === 'en' ? `${nv} new live stories` : `${nv} notas nuevas en vivo`) : (idioma === 'en' ? 'Up to date' : 'Al día'));
+}
+
+/* ---------- Interacción ---------- */
+document.querySelectorAll('.idioma button').forEach(b => b.onclick = () => { idioma = b.dataset.lang; try { localStorage.setItem('idioma', idioma); } catch {} pintarTodo(); });
+$('#actualizar').onclick = () => actualizar(true);
+document.querySelectorAll('[data-tipo]').forEach(b => b.onclick = () => { tipo = b.dataset.tipo; document.querySelectorAll('[data-tipo]').forEach(x => x.classList.toggle('activo', x === b)); pintarCalc(); });
+$('#salario').addEventListener('input', e => { const d = e.target.value.replace(/\D/g, ''); e.target.value = d ? Number(d).toLocaleString('es-CO') : ''; pintarCalc(); });
+$('#rapidos').innerHTML = [1, 2, 3, 5, 10].map(n => `<button data-n="${n}">${n} SMLMV</button>`).join('');
+$('#rapidos').querySelectorAll('button').forEach(b => b.onclick = () => { $('#salario').value = Math.round(b.dataset.n * SMLMV).toLocaleString('es-CO'); pintarCalc(); });
+$('#buscarArt').addEventListener('input', pintarArticulos);
+document.querySelectorAll('[data-voz]').forEach(b => b.onclick = () => { lado = b.dataset.voz; pintarVoces(); });
+$('#buscar').addEventListener('input', () => { mostrar = 14; pintarLista(); });
+$('#masNoticias').onclick = () => { mostrar += 14; pintarLista(); };
+$('#buscarVivo').onclick = async () => {
+  const b = $('#buscarVivo'); b.disabled = true; b.textContent = idioma === 'en' ? 'Searching…' : 'Buscando…';
+  const q = $('#buscar').value.trim();
+  const n = await buscarEnVivo(q && !/\s/.test(q) ? q : '');
+  b.disabled = false; b.textContent = tx('buscarVivo', 'Buscar en vivo');
+  pintarLista(); pintarHoy();
+  toast(n > 0 ? (idioma === 'en' ? `${n} live results` : `${n} resultados en vivo`) : n === 0 ? (idioma === 'en' ? 'Nothing new right now' : 'Nada nuevo por ahora') : (idioma === 'en' ? 'Live search unavailable, showing the robot\'s news' : 'La búsqueda en vivo no respondió; se muestran las del robot'));
+};
+
+let io;
+function observar() {
+  io ||= new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.revelar:not(.visto)').forEach(el => io.observe(el));
+}
+// Menú: resaltar la sección visible
+const secciones = [...document.querySelectorAll('main section')];
+addEventListener('scroll', () => {
+  let actual = '';
+  for (const s of secciones) if (s.getBoundingClientRect().top < 160) actual = s.id;
+  document.querySelectorAll('#menu a').forEach(a => a.classList.toggle('activo', a.getAttribute('href') === '#' + actual));
+}, { passive: true });
+// Al volver a la app, refrescar
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && Date.now() - (window._ult || 0) > 5 * 60000) { window._ult = Date.now(); actualizar(false); } });
+
+window._ult = Date.now();
+actualizar(false);
+if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+</script>
+</body>
+</html>

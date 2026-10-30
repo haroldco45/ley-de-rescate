@@ -1,0 +1,17 @@
+{
+  "nota": "Estado oficial del trámite. Se edita a mano cuando el proyecto avanza (fecha AAAA-MM-DD). 'esLey' pasa a true cuando el presidente lo sancione.",
+  "proyecto": "477/2026C",
+  "esLey": false,
+  "hundido": false,
+  "numeroLey": "",
+  "pasos": {
+    "radicacion":   { "hecho": true,  "fecha": "2026-10-29" },
+    "ponentes":     { "hecho": false, "fecha": "" },
+    "primer":       { "hecho": false, "fecha": "" },
+    "segundo":      { "hecho": false, "fecha": "" },
+    "tercer":       { "hecho": false, "fecha": "" },
+    "cuarto":       { "hecho": false, "fecha": "" },
+    "conciliacion": { "hecho": false, "fecha": "" },
+    "sancion":      { "hecho": false, "fecha": "" }
+  }
+}
