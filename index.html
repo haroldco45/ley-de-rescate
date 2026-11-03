@@ -197,6 +197,13 @@ section{padding:64px 0 10px}
 .res span{font-size:.76rem;color:var(--suave);font-weight:600}
 .res.sube b{color:#ff8b9b} .res.igual b{color:var(--verde)}
 .dos{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:16px}
+.estado-def{margin-bottom:18px}
+.sem{display:flex;gap:16px;align-items:center;padding:18px 20px;border-radius:20px;border:1px solid var(--linea);background:linear-gradient(110deg,rgba(255,210,63,.16),var(--tarjeta) 60%)}
+.sem b{font-family:"Archivo Black";font-size:1.25rem}.sem p{color:var(--suave);font-size:.92rem;margin-top:4px}
+.luz{flex:none;width:18px;height:18px;border-radius:50%;background:var(--amarillo);box-shadow:0 0 0 0 rgba(255,210,63,.7);animation:latido 1.8s infinite}
+@keyframes latido{0%{box-shadow:0 0 0 0 rgba(255,210,63,.7)}70%{box-shadow:0 0 0 16px rgba(255,210,63,0)}100%{box-shadow:0 0 0 0 rgba(255,210,63,0)}}
+#defEfectos{margin-top:4px}#defEfectos .pilar{min-height:300px}
+.def-lista{margin:12px 0 0 18px;display:grid;gap:10px;font-size:.92rem;color:#d6ddff}.def-lista small{display:block;color:var(--suave);font-size:.76rem;margin-top:2px}.def-lista a{color:var(--amarillo)}
 .caja{background:var(--tarjeta);border:1px solid var(--linea);border-radius:22px;padding:20px}
 .tabla{width:100%;border-collapse:collapse;margin-top:12px;font-size:.84rem}
 .tabla th{text-align:left;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--suave);padding:6px 4px;border-bottom:1px solid var(--linea)}
@@ -292,6 +299,7 @@ footer a{color:var(--amarillo)}
       <a href="#tramite" data-t="mTramite">Trámite</a>
       <a href="#propone" data-t="mPropone">Qué propone</a>
       <a href="#bolsillo" data-t="mBolsillo">Su bolsillo</a>
+      <a href="#default" data-t="mDefault">¿Y si hay default?</a>
       <a href="#articulos" data-t="mArt">Artículos</a>
       <a href="#voces" data-t="mVoces">Voces</a>
       <a href="#videos" data-t="mVideos">Videos</a>
@@ -371,6 +379,22 @@ footer a{color:var(--amarillo)}
       <div class="caja"><h3 data-t="tComida">El IVA de la comida desde 2028</h3><p class="mini" data-t="pComida">Artículos 42, 46 y 106. Lo que aparece en las listas sin IVA y lo que no.</p><div id="comida"></div></div>
     </div>
     <div class="aviso revelar" data-t="avisoBolsillo">Esto es lo que dice el proyecto radicado el 29 de octubre de 2026. Nada de esto rige todavía: solo aplica si el Congreso lo aprueba y el presidente lo sanciona, y los congresistas ya anunciaron cambios.</div>
+  </div>
+</section>
+
+<section id="default">
+  <div class="contenedor">
+    <div class="cabeza revelar"><div><span class="etiqueta" data-t="eDefault">El riesgo de fondo</span><h2 data-t="tDefault">¿Qué pasa si Colombia entra en default?</h2><p data-t="pDefault">Default o cesación de pagos es cuando el Estado deja de pagarles a quienes le prestaron: bonistas, bancos y entidades como el BID o el Banco Mundial. Este es el escenario que el Gobierno, los congresistas y los analistas mencionan en el debate de las finanzas públicas.</p></div></div>
+    <div class="estado-def revelar">
+      <div class="sem"><span class="luz"></span><div><b data-t="defEstado">Colombia NO está en default</b><p data-t="defEstadoP">Sigue pagando su deuda. Pero la calificación de riesgo está en su punto más bajo en más de 30 años.</p></div></div>
+    </div>
+    <div class="pilares" id="defEfectos"></div>
+    <div class="cifras revelar" id="defCifras"></div>
+    <div class="dos revelar">
+      <div class="caja"><h3 data-t="tDefHoy">Dónde estamos hoy</h3><ul class="def-lista" id="defHoy"></ul></div>
+      <div class="caja"><h3 data-t="tDefEspejo">Países que ya pasaron por esto</h3><ul class="def-lista" id="defEspejo"></ul></div>
+    </div>
+    <div class="aviso revelar" data-t="avisoDefault">Esta sección explica un escenario posible, no una predicción. Analistas citados por Bloomberg consideran poco probable que Colombia entre en default, aunque el riesgo país ha subido. Las noticias sobre el tema aparecen en el archivo con la etiqueta Default.</div>
   </div>
 </section>
 
@@ -465,6 +489,11 @@ const T = {
     empleado: 'Employee', independiente: 'Self-employed', lblSalario: 'Monthly salary (or contribution base)',
     tRenta: 'New personal income tax table', pRenta: 'Article 48. Applies to annual taxable income, after exemptions and deductions. Pesos at the 2026 UVT (COP 52,374).',
     tComida: 'VAT on food from 2028', pComida: 'Articles 42, 46 and 106. What is on the VAT-free lists and what is not.',
+    mDefault: 'What if there is a default?', eDefault: 'The underlying risk', tDefault: 'What happens if Colombia defaults?',
+    pDefault: 'A default is when the State stops paying its lenders: bondholders, banks and institutions such as the IDB or the World Bank. It is the scenario the Government, lawmakers and analysts bring up in the public-finance debate.',
+    defEstado: 'Colombia is NOT in default', defEstadoP: 'It keeps paying its debt. But its credit rating is at its lowest in over 30 years.',
+    tDefHoy: 'Where we stand today', tDefEspejo: 'Countries that went through this',
+    avisoDefault: 'This section explains a possible scenario, not a prediction. Analysts quoted by Bloomberg consider a Colombian default unlikely, although country risk has risen. News on the topic appears in the archive tagged Default.',
     eArt: 'The filed text', tArt: 'Inside the law', pArt: '106 articles in seven titles. Tap each title to see what its main articles say.', buscarArtPh: 'Search the articles: salud, IVA, DIAN…',
     pie1: 'Citizen tracking app. It summarizes what the media and Congress publish; it is not an official Government or Congress page.',
     pie2: 'Last robot update:', horaCol: '(Colombia time)', pie3: 'Software by Vibras Positivas HM · Caucasia, Antioquia',
@@ -594,6 +623,49 @@ const TITULOS = [
     ['106', { es: 'Rige desde su promulgación, salvo las fechas propias de cada artículo. Deroga, entre otros, el IVA del 5% desde 2028 y el impuesto a plásticos de un solo uso.', en: 'In force from promulgation, except each article\'s own dates. Repeals, among others, the 5% VAT from 2028 and the single-use plastics tax.' }],
   ] },
 ];
+
+const DEF_EFECTOS = [
+  { n: '01', cifra: 'US$', t: { es: 'El dólar se dispara', en: 'The dollar soars' }, cifraT: { es: 'salida de capitales', en: 'capital flight' },
+    l: { es: ['Los inversionistas sacan su plata del país', 'Suben los productos importados y los insumos', 'Más inflación en la canasta familiar'], en: ['Investors pull their money out', 'Imported goods and inputs get pricier', 'Higher inflation in the family basket'] } },
+  { n: '02', cifra: '%', t: { es: 'Los créditos se encarecen', en: 'Credit gets more expensive' }, cifraT: { es: 'tasas más altas', en: 'higher rates' },
+    l: { es: ['Hipotecas, tarjetas y préstamos más caros', 'Las empresas pagan más por financiar inventario', 'Menos inversión y menos empleo'], en: ['Pricier mortgages, cards and loans', 'Businesses pay more to finance inventory', 'Less investment and fewer jobs'] } },
+  { n: '03', cifra: '0', t: { es: 'El país se queda sin crédito', en: 'The country loses access to credit' }, cifraT: { es: 'nadie le presta', en: 'no one lends' },
+    l: { es: ['Recortes en inversión, subsidios y programas', 'Posibles atrasos en pagos a contratistas', 'Obras públicas frenadas'], en: ['Cuts to investment, subsidies and programs', 'Possible delays paying contractors', 'Public works put on hold'] } },
+  { n: '04', cifra: 'TES', t: { es: 'Bancos y pensiones en riesgo', en: 'Banks and pensions at risk' }, cifraT: { es: 'bonos que pierden valor', en: 'bonds lose value' },
+    l: { es: ['Bancos y fondos de pensiones tienen muchos TES', 'Si caen de precio, se golpean sus balances', 'Los analistas mencionan el riesgo de un "corralito"'], en: ['Banks and pension funds hold many TES bonds', 'If their price falls, balance sheets suffer', 'Analysts mention the risk of a bank-withdrawal freeze'] } },
+  { n: '05', cifra: 'FMI', t: { es: 'Una salida larga y dura', en: 'A long, hard way out' }, cifraT: { es: 'años de ajuste', en: 'years of adjustment' },
+    l: { es: ['Hay que renegociar la deuda, muchas veces con el FMI', 'Llegan recortes de gasto y más impuestos', 'Recuperar la confianza toma años'], en: ['Debt must be renegotiated, often with the IMF', 'Spending cuts and higher taxes follow', 'Regaining trust takes years'] } },
+];
+const DEF_CIFRAS = [
+  { v: 'BB-', t: { es: 'nota de S&P: la más baja desde 1993', en: 'S&P rating: lowest since 1993' } },
+  { v: 'BB', t: { es: 'nota de Fitch', en: 'Fitch rating' } },
+  { v: '2021', t: { es: 'año en que Colombia perdió el grado de inversión', en: 'year Colombia lost investment grade' } },
+  { v: '+7%', t: { es: 'déficit fiscal del PIB proyectado para 2026 (Fedesarrollo)', en: '2026 fiscal deficit, % of GDP (Fedesarrollo)' } },
+];
+const DEF_HOY = [
+  { t: { es: 'S&P bajó a Colombia a BB-, más abajo que en la crisis de 1999.', en: 'S&P cut Colombia to BB-, lower than in the 1999 crisis.' }, f: 'Portafolio', u: 'https://www.portafolio.co/economia/colombia-cae-a-bb-con-perspectiva-estable-su-peor-calificacion-en-30-anos-y-por-debajo-de-la-crisis-de-491700' },
+  { t: { es: 'El Gobierno ha advertido varias veces sobre riesgo de default cuando el Congreso no le aprueba créditos.', en: 'The Government has repeatedly warned of default risk when Congress does not approve its loans.' }, f: 'Valora Analitik', u: 'https://www.valoraanalitik.com/gobierno-petro-vuelve-a-advertir-que-podria-entrar-en-default-para-pagos-de-deuda/' },
+  { t: { es: 'Bloomberg considera poco probable el default, pero dice que sugerirlo sube el riesgo país.', en: 'Bloomberg sees default as unlikely, but says floating it raises country risk.' }, f: 'Bloomberg / Perfil', u: 'https://www.perfil.com/noticias/bloomberg/bc-que-implica-la-amenaza-de-cesacion-de-pagos-de-petro-para-colombia.phtml' },
+];
+const DEF_ESPEJO = [
+  { t: { es: 'Argentina: el caso más conocido de la región, con varios impagos y años de crisis.', en: 'Argentina: the best-known case in the region, with several defaults and years of crisis.' } },
+  { t: { es: 'Ecuador: su presidente ha advertido sobre el riesgo de default en 2026 o 2027.', en: 'Ecuador: its president has warned of default risk in 2026 or 2027.' }, f: 'Portafolio', u: 'https://www.portafolio.co/indicadores-economicos/noticias-principales/la-prima-de-riesgo-de-ecuador-supera-los-2-000-puntos-592393' },
+  { t: { es: 'Líbano: el impago vino con un corralito y una fuerte caída de la moneda.', en: 'Lebanon: default came with a bank freeze and a sharp currency collapse.' } },
+  { t: { es: 'México, Rusia y Zimbabue también aparecen en la lista de países que han caído en impago.', en: 'Mexico, Russia and Zimbabwe also appear on the list of countries that have defaulted.' }, f: 'Noticias Caracol', u: 'https://www.noticiascaracol.com/economia/colombia-podria-estar-en-un-callejon-sin-salida-por-riesgo-de-default-rg10' },
+];
+function pintarDefault() {
+  const fotos = fotosConImagen();
+  $('#defEfectos').innerHTML = DEF_EFECTOS.map((p, i) => {
+    const f = fotos[(i + 5) % Math.max(1, fotos.length)];
+    return `<article class="pilar revelar"><div class="fondo" style="${f ? `background-image:url('${esc(f.imagen)}')` : ''}"></div>
+      <span class="n">${p.n}</span><div class="cifra">${esc(p.cifra)}</div><div class="cifra-txt">${esc(L(p.cifraT))}</div>
+      <h3>${esc(L(p.t))}</h3><ul>${L(p.l).map(x => `<li>${esc(x)}</li>`).join('')}</ul></article>`;
+  }).join('');
+  $('#defCifras').innerHTML = DEF_CIFRAS.map(c => `<div class="cifra-c"><b>${esc(c.v)}</b><span>${esc(L(c.t))}</span></div>`).join('');
+  const li = x => `<li>${esc(L(x.t))}${x.u ? `<small><a href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.f)}</a></small>` : ''}</li>`;
+  $('#defHoy').innerHTML = DEF_HOY.map(li).join('');
+  $('#defEspejo').innerHTML = DEF_ESPEJO.map(li).join('');
+}
 
 const VOCES = {
   favor: [
@@ -868,7 +940,7 @@ function pintarArticulos() {
 
 function pintarTodo() {
   traducirInterfaz();
-  pintarPortada(); pintarIndicadores(); pintarCinta(); pintarHoy(); pintarTramite(); pintarPilares(); pintarBolsillo(); pintarCalc(); pintarRenta(); pintarComida(); pintarArticulos(); pintarVoces(); pintarVideos(); pintarLista(); pintarDocs();
+  pintarPortada(); pintarIndicadores(); pintarCinta(); pintarHoy(); pintarTramite(); pintarPilares(); pintarBolsillo(); pintarCalc(); pintarRenta(); pintarComida(); pintarDefault(); pintarArticulos(); pintarVoces(); pintarVideos(); pintarLista(); pintarDocs();
   if (datos.actualizado) $('#ultima').textContent = new Intl.DateTimeFormat(idioma === 'en' ? 'en-US' : 'es-CO', { timeZone: ZONA, dateStyle: 'medium', timeStyle: 'short' }).format(new Date(datos.actualizado));
   observar();
 }

@@ -17,7 +17,7 @@ const DIAS_VIDEOS = 60;
 const MAX_FOTOS_POR_CORRIDA = 60;
 
 // Qué cuenta como "del tema"
-export const TEMA = /ley de rescate|rescate (econ[oó]mico|fiscal)|ley de ajuste fiscal|ajuste fiscal|proyecto (de ley )?477|pl 477|efectiva\b|reforma tributaria|tributaria de (abelardo|de la espriella)|miguel g[oó]mez mart[ií]nez|ministro (de hacienda|miguel g[oó]mez)|minhacienda|regla fiscal|d[eé]ficit fiscal|facultades extraordinarias|iva (al|a la|del) (caf[eé]|az[uú]car|cerveza|gasolina)|arreglar (las )?cuentas/i;
+export const TEMA = /ley de rescate|rescate (econ[oó]mico|fiscal)|ley de ajuste fiscal|ajuste fiscal|proyecto (de ley )?477|pl 477|efectiva\b|reforma tributaria|default|cesaci[oó]n de pagos|calificaci[oó]n (de riesgo|crediticia)|grado de inversi[oó]n|tributaria de (abelardo|de la espriella)|miguel g[oó]mez mart[ií]nez|ministro (de hacienda|miguel g[oó]mez)|minhacienda|regla fiscal|d[eé]ficit fiscal|facultades extraordinarias|iva (al|a la|del) (caf[eé]|az[uú]car|cerveza|gasolina)|arreglar (las )?cuentas/i;
 // Señales de que el trámite avanzó
 const SENALES = [
   { paso: 'ponentes', re: /ponente|ponencia|coordinador(es)? ponente/i },
@@ -36,12 +36,14 @@ const TEMAS = [
   { tema: 'Ley de Rescate', q: '"Miguel Gómez" Hacienda ley', dias: 7 },
   { tema: 'Congreso', q: '"ley de rescate" Cámara OR Senado OR ponencia OR debate', dias: 14 },
   { tema: 'Impuestos', q: '"ley de rescate" IVA OR renta OR impuesto OR EfectIVA', dias: 14 },
+  { tema: 'Default', q: 'Colombia default OR "cesación de pagos" OR "calificación crediticia" deuda', dias: 7 },
 ];
 const BING = [
   { tema: 'Ley de Rescate', q: '"Ley de Rescate" Colombia' },
   { tema: 'Ley de Rescate', q: '"Ley de Rescate Económico"' },
   { tema: 'Impuestos', q: 'Ley de Rescate IVA Colombia' },
   { tema: 'Congreso', q: 'Ley de Rescate Congreso ponencia' },
+  { tema: 'Default', q: 'Colombia riesgo default deuda' },
 ];
 const MEDIOS = [
   { medio: 'Infobae Colombia', url: 'https://www.infobae.com/arc/outboundfeeds/rss/category/colombia/' },
