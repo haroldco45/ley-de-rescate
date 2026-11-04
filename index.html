@@ -253,6 +253,22 @@ section{padding:64px 0 10px}
 .video .txt{padding:12px 14px}
 .video h3{font-size:.92rem;font-weight:700;line-height:1.3}
 
+
+/* Video propio (Vibras Positivas HM) */
+.propio{display:grid;grid-template-columns:minmax(220px,330px) 1fr;gap:26px;align-items:center;margin-bottom:24px;padding:20px;border-radius:24px;background:linear-gradient(135deg,rgba(47,107,255,.22),rgba(255,196,40,.10));border:1px solid rgba(255,210,63,.45);position:relative;overflow:hidden}
+.propio video{width:100%;aspect-ratio:9/16;border-radius:18px;background:#000;display:block;box-shadow:0 20px 50px -20px rgba(0,0,0,.8)}
+.propio .ptag{display:inline-block;background:#ffc428;color:#081026;font-weight:800;font-size:.72rem;letter-spacing:.08em;padding:6px 12px;border-radius:99px;text-transform:uppercase}
+.propio h3{font-size:clamp(1.35rem,3.4vw,2rem);line-height:1.12;margin:12px 0 8px;font-weight:800}
+.propio p{opacity:.88;line-height:1.5}
+.propio .cifras{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:16px 0}
+.propio .cifra{background:rgba(255,255,255,.07);border-radius:14px;padding:12px 14px;border-left:4px solid #ff5c5c}
+.propio .cifra.gana{border-left-color:#2edc8c}
+.propio .cifra b{display:block;font-size:1.2rem;font-weight:800;line-height:1.2}
+.propio .cifra span{display:block;font-size:.82rem;opacity:.85;line-height:1.35;margin-top:4px}
+.propio small{display:block;opacity:.7;font-size:.78rem;margin-top:8px}
+.propio .pbtn{display:inline-block;margin-top:12px;background:#ffc428;color:#081026;font-weight:800;padding:10px 18px;border-radius:12px;text-decoration:none}
+@media(max-width:720px){.propio{grid-template-columns:1fr}.propio video{max-width:340px;margin:0 auto}}
+
 /* Noticias */
 .buscador{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
 .buscador input{flex:1;min-width:200px;padding:13px 16px;border-radius:14px;border:1px solid var(--linea);background:var(--fondo2);color:var(--texto);font:inherit;font-size:.95rem}
@@ -418,6 +434,17 @@ footer a{color:var(--amarillo)}
 <section id="videos">
   <div class="contenedor">
     <div class="cabeza revelar"><div><span class="etiqueta" data-t="eVideos">Para ver</span><h2 data-t="tVideos">Videos de los noticieros</h2><p data-t="pVideos">El robot busca cada 30 minutos los videos de los noticieros colombianos que hablen de la ley.</p></div></div>
+    <div class="propio" id="video-propio">
+      <video controls playsinline preload="metadata" poster="video-clase-media.jpg"><source src="ley-de-rescate-clase-media.mp4" type="video/mp4"></video>
+      <div>
+        <span class="ptag" data-t="vp_ptag">Video propio · Vibras Positivas HM</span>
+        <h3 data-t="vp_ptit">Ley de Rescate y la clase media: ¿quién gana y quién paga?</h3>
+        <p data-t="vp_ptxt">Una aproximación con cálculos propios de un escenario probable: la devolución del IVA para la clase media emergente y cuánto más pagarían los asalariados en renta y salud.</p>
+        <div class="cifras"><div class="cifra gana"><b data-t="vp_c1b">40 %</b><span data-t="vp_c1s">del IVA le devolverían a un hogar del decil 5 (desde 2028)</span></div><div class="cifra gana"><b data-t="vp_c2b">Hasta $3,5 M</b><span data-t="vp_c2s">de sueldo: no cambia nada en renta ni salud</span></div><div class="cifra"><b data-t="vp_c3b">+$2,08 M al año</b><span data-t="vp_c3s">pagaría un asalariado de $6 millones (renta + salud)</span></div><div class="cifra"><b data-t="vp_c4b">+$4,32 M al año</b><span data-t="vp_c4s">pagaría un asalariado de $10 millones</span></div></div>
+        <small data-t="vp_pnota">Video hecho con ayuda de Opus 5.5. Supuestos: UVT y salario mínimo de 2026, asalariado sin dependientes ni otras deducciones. Todavía es un proyecto de ley. Video en español.</small>
+        <a class="pbtn" href="ley-de-rescate-clase-media.mp4" download data-t="vp_pbtn">Descargar el video para compartir</a>
+      </div>
+    </div>
     <div class="videos" id="videosLista"></div>
   </div>
 </section>
@@ -464,6 +491,7 @@ try { idioma = localStorage.getItem('idioma') || (navigator.language || 'es').sl
 const T = {
   es: {},
   en: {
+    vp_ptag: 'Our own video · Vibras Positivas HM', vp_ptit: 'The Rescue Law and the middle class: who gains and who pays?', vp_ptxt: 'An approximation with our own estimates under a likely scenario: VAT refunds for the emerging middle class, and how much more salaried workers would pay in income tax and health contributions.', vp_c1b: '40%', vp_c1s: 'of VAT refunded to a decile 5 household (from 2028)', vp_c2b: 'Up to COP 3.5M', vp_c2s: 'monthly salary: no change in income tax or health', vp_c3b: '+COP 2.08M a year', vp_c3s: 'for a worker earning COP 6M a month (tax + health)', vp_c4b: '+COP 4.32M a year', vp_c4s: 'for a worker earning COP 10M a month', vp_pnota: 'Video made with help from Opus 5.5. Assumptions: 2026 UVT and minimum wage, salaried worker with no dependents or other deductions. Still a bill. Video in Spanish.', vp_pbtn: 'Download the video to share',
     marcaSub: 'Bill 477 of 2026 · Vibras Positivas HM', actualizar: 'Refresh',
     mHoy: 'Today', mTramite: 'Progress', mPropone: 'What it proposes', mBolsillo: 'Your wallet', mVoces: 'Voices', mVideos: 'Videos', mNoticias: 'News', mDocs: 'Documents',
     h1a: 'Economic', h1b: 'Rescue Law',
