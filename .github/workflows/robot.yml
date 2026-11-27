@@ -30,7 +30,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "Nada nuevo"
           else
-            git commit -m "Ley de Rescate $(TZ=America/Bogota date '+%Y-%m-%d %H:%M')"
+            git commit -m "[skip netlify] Ley de Rescate $(TZ=America/Bogota date '+%Y-%m-%d %H:%M')"
             git pull --rebase
             git push
           fi
